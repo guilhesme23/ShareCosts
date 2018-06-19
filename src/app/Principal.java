@@ -1,4 +1,7 @@
 package app;
+
+import telas.Home;
+
 /**
  *
  * @author guilherme
@@ -6,7 +9,8 @@ package app;
 public class Principal {
 
     public static void main(String[] args) {
-        // TODO code application logic here
+        Home home = new Home();
+        home.setVisible(true);
     }
     
 }
