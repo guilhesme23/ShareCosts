@@ -5,7 +5,9 @@
  */
 package telas;
 
+import java.awt.CardLayout;
 import java.awt.Color;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,123 +31,225 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        bt_exit = new javax.swing.JPanel();
+        Root = new javax.swing.JPanel();
+        homeCard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        formPerson = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menuNew = new javax.swing.JMenu();
+        homeButton = new javax.swing.JRadioButtonMenuItem();
+        newPersonButton = new javax.swing.JRadioButtonMenuItem();
+        menuNew1 = new javax.swing.JMenu();
+        homeButton1 = new javax.swing.JRadioButtonMenuItem();
+        newPersonButton1 = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
-        setUndecorated(true);
         setResizable(false);
 
-        background.setBackground(new java.awt.Color(0, 106, 0));
-        background.setForeground(new java.awt.Color(255, 255, 255));
-        background.setPreferredSize(new java.awt.Dimension(700, 400));
-        background.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                backgroundMouseExited(evt);
-            }
-        });
+        Root.setBackground(new java.awt.Color(226, 242, 243));
+        Root.setLayout(new java.awt.CardLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 138, 0));
-        jPanel1.setForeground(new java.awt.Color(87, 211, 116));
+        homeCard.setBackground(new java.awt.Color(226, 242, 243));
+        homeCard.setName(""); // NOI18N
 
-        bt_exit.setBackground(new java.awt.Color(0, 189, 47));
-        bt_exit.setPreferredSize(new java.awt.Dimension(400, 80));
-        bt_exit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bt_exitMouseExited(evt);
-            }
-        });
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EXIT");
+        jLabel1.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel1.setText("Home");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel1MouseExited(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel1MouseEntered(evt);
             }
         });
 
-        javax.swing.GroupLayout bt_exitLayout = new javax.swing.GroupLayout(bt_exit);
-        bt_exit.setLayout(bt_exitLayout);
-        bt_exitLayout.setHorizontalGroup(
-            bt_exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(bt_exitLayout.createSequentialGroup()
+        javax.swing.GroupLayout homeCardLayout = new javax.swing.GroupLayout(homeCard);
+        homeCard.setLayout(homeCardLayout);
+        homeCardLayout.setHorizontalGroup(
+            homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel1)
+                .addContainerGap(328, Short.MAX_VALUE))
         );
-        bt_exitLayout.setVerticalGroup(
-            bt_exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bt_exitLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+        homeCardLayout.setVerticalGroup(
+            homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeCardLayout.createSequentialGroup()
+                .addContainerGap(236, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bt_exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        Root.add(homeCard, "home");
+
+        formPerson.setBackground(new java.awt.Color(226, 242, 243));
+        formPerson.setName(""); // NOI18N
+
+        jLabel2.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel2.setText("Add Person");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel2MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel2MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formPersonLayout = new javax.swing.GroupLayout(formPerson);
+        formPerson.setLayout(formPersonLayout);
+        formPersonLayout.setHorizontalGroup(
+            formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formPersonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addContainerGap(269, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 320, Short.MAX_VALUE)
-                .addComponent(bt_exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        formPersonLayout.setVerticalGroup(
+            formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formPersonLayout.createSequentialGroup()
+                .addContainerGap(236, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
-        background.setLayout(backgroundLayout);
-        backgroundLayout.setHorizontalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(150, 150, 150))
-        );
-        backgroundLayout.setVerticalGroup(
-            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Root.add(formPerson, "newPerson");
+
+        jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
+        jMenuBar1.setBorder(null);
+
+        menuNew.setForeground(new java.awt.Color(31, 108, 103));
+        menuNew.setText("New");
+        menuNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewActionPerformed(evt);
+            }
+        });
+
+        homeButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        homeButton.setBackground(new java.awt.Color(182, 224, 224));
+        homeButton.setText("Home");
+        homeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButtonActionPerformed(evt);
+            }
+        });
+        menuNew.add(homeButton);
+
+        newPersonButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        newPersonButton.setBackground(new java.awt.Color(182, 224, 224));
+        newPersonButton.setText("New Person");
+        newPersonButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPersonButtonActionPerformed(evt);
+            }
+        });
+        menuNew.add(newPersonButton);
+
+        jMenuBar1.add(menuNew);
+
+        menuNew1.setForeground(new java.awt.Color(31, 108, 103));
+        menuNew1.setText("Show");
+        menuNew1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNew1ActionPerformed(evt);
+            }
+        });
+
+        homeButton1.setBackground(new java.awt.Color(182, 224, 224));
+        homeButton1.setText("Dwellers");
+        homeButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                homeButton1ActionPerformed(evt);
+            }
+        });
+        menuNew1.add(homeButton1);
+
+        newPersonButton1.setBackground(new java.awt.Color(182, 224, 224));
+        newPersonButton1.setText("Costs");
+        newPersonButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newPersonButton1ActionPerformed(evt);
+            }
+        });
+        menuNew1.add(newPersonButton1);
+
+        jMenuBar1.add(menuNew1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        this.dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
-
     private void jLabel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseEntered
-        bt_exit.setBackground(new Color(0,106,0));
     }//GEN-LAST:event_jLabel1MouseEntered
 
-    private void backgroundMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backgroundMouseExited
-        
-    }//GEN-LAST:event_backgroundMouseExited
+    private void jLabel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseExited
+    }//GEN-LAST:event_jLabel1MouseExited
 
-    private void bt_exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_exitMouseExited
-        bt_exit.setBackground(new Color(0,189,47));
-    }//GEN-LAST:event_bt_exitMouseExited
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void jLabel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseExited
+
+    private void jLabel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseEntered
+
+    private void menuNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"home");
+    }//GEN-LAST:event_menuNewActionPerformed
+
+    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"home");
+    }//GEN-LAST:event_homeButtonActionPerformed
+
+    private void newPersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newPerson");
+    }//GEN-LAST:event_newPersonButtonActionPerformed
+
+    private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_homeButton1ActionPerformed
+
+    private void newPersonButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newPersonButton1ActionPerformed
+
+    private void menuNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNew1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuNew1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,9 +287,17 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel background;
-    private javax.swing.JPanel bt_exit;
+    private javax.swing.JPanel Root;
+    private javax.swing.JPanel formPerson;
+    private javax.swing.JRadioButtonMenuItem homeButton;
+    private javax.swing.JRadioButtonMenuItem homeButton1;
+    private javax.swing.JPanel homeCard;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu menuNew;
+    private javax.swing.JMenu menuNew1;
+    private javax.swing.JRadioButtonMenuItem newPersonButton;
+    private javax.swing.JRadioButtonMenuItem newPersonButton1;
     // End of variables declaration//GEN-END:variables
 }
