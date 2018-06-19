@@ -48,5 +48,11 @@ public class Person {
         this.income = income;
     }
     
+    @Override
+    public String toString() {
+        
+        String result = this.name + "\n" + this.email + "\n" + this.income + "\n";
     
+        return result;
+    }
 }
