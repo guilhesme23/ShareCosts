@@ -47,6 +47,9 @@ public class Home extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
+        fileMenu = new javax.swing.JMenu();
+        saveButton = new javax.swing.JRadioButtonMenuItem();
+        loadButton = new javax.swing.JRadioButtonMenuItem();
         menuNew = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
@@ -117,7 +120,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel3.setText("Nome:");
+        jLabel3.setText("Name:");
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel4.setText("Email:");
@@ -177,6 +180,36 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
+
+        fileMenu.setForeground(new java.awt.Color(31, 108, 103));
+        fileMenu.setText("File");
+        fileMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fileMenuActionPerformed(evt);
+            }
+        });
+
+        saveButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        saveButton.setBackground(new java.awt.Color(182, 224, 224));
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+        fileMenu.add(saveButton);
+
+        loadButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        loadButton.setBackground(new java.awt.Color(182, 224, 224));
+        loadButton.setText("Load");
+        loadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadButtonActionPerformed(evt);
+            }
+        });
+        fileMenu.add(loadButton);
+
+        jMenuBar1.add(fileMenu);
 
         menuNew.setForeground(new java.awt.Color(31, 108, 103));
         menuNew.setText("New");
@@ -328,6 +361,25 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
+        
+        if (showConfirmDialog == JOptionPane.YES_OPTION) {
+            Principal.republic.recordResidents();
+        } else {
+            JOptionPane.showMessageDialog(null, "Aborted!");
+        }
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_loadButtonActionPerformed
+
+    private void fileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fileMenuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -366,6 +418,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Root;
     private javax.swing.JTextField emailEntry;
+    private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formPerson;
     private javax.swing.JRadioButtonMenuItem homeButton;
     private javax.swing.JPanel homeCard;
@@ -377,11 +430,13 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JMenu menuNew;
     private javax.swing.JMenu menuNew1;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
     private javax.swing.JRadioButtonMenuItem newPersonButton1;
+    private javax.swing.JRadioButtonMenuItem saveButton;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     // End of variables declaration//GEN-END:variables
 }
