@@ -8,9 +8,11 @@ package files;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -58,6 +60,15 @@ public class FileHandler implements Serializable {
             Logger.getLogger(FileHandler.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
+    }
+    
+    public static void exportObject(Object obj, String path) throws IOException {
+        FileWriter fWriter = new FileWriter(path);
+        PrintWriter arq = new PrintWriter(fWriter);
+        
+        arq.printf("Republica:\n%s", obj.toString());
+        
+        arq.close();
     }
     
 }

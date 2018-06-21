@@ -112,4 +112,18 @@ public class Republic implements Serializable {
         }
         
     }
+    
+    @Override
+    public String toString() {
+        
+        String result = "Alunos:\n";
+        String separator = "#######################################\n";
+        
+        for (Person p: residents) {
+            result += separator;
+            result += p.toString();
+        }
+        
+        return result;
+    }
 }
