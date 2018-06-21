@@ -337,35 +337,14 @@ public class Home extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = nameEntry.getText();
         String email = emailEntry.getText();
-        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
-        String nameRegex = "\\D+";
-        float income;
+        String income = incomeEntry.getText();
+        
         try {
-            income = Float.parseFloat(incomeEntry.getText());
+            Principal.republic.addPerson(name, email, income);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!");
         } catch(Exception ex) {
-            income = 0;
+            JOptionPane.showMessageDialog(null, "Dados inválidos\nPor favor repita a operação");
         }
-        Republic myRepublic = Principal.republic;
-        
-        if (!email.matches(emailRegex)) {
-            JOptionPane.showMessageDialog(null, "Insira um email válido");
-            email = "";
-        }
-        
-        if (!name.matches(nameRegex)) {
-            JOptionPane.showMessageDialog(null, "Nomes devem conter apenas letras!");
-            name = "";
-        }
-        
-        if(!name.isEmpty() && !email.isEmpty() && income != 0) {
-            
-            myRepublic.addPerson(name, email, income);
-            JOptionPane.showMessageDialog(null, "Cadastrado");
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-        }
-        
         
         nameEntry.setText("");
         emailEntry.setText("");

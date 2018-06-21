@@ -53,7 +53,11 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         
-        String result = this.name + "\n" + this.email + "\n" + this.income + "\n";
+        String result = "Name: " + this.name 
+                        + "\n" 
+                        + "Email: " + this.email 
+                        + "\n" 
+                        + "Income: " + this.income + "\n";
     
         return result;
     }

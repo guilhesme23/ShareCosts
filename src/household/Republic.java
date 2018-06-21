@@ -47,10 +47,21 @@ public class Republic implements Serializable {
         this.costs = costs;
     }
     
-    public void addPerson(String name, String email, float income) {
-        Person person = new Person(name,email,income);
+    public void addPerson(String name, String email, String income) throws IllegalArgumentException {
+        Person person;
+        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String nameRegex = "\\D+";
+        String incomeRegex = "\\d+\\.?\\d{0,}";
         
-        this.residents.add(person);
+        if (name.matches(nameRegex) && email.matches(emailRegex) && income.matches(incomeRegex)) {
+            float value = Float.parseFloat(income);
+            person = new Person(name, email, value);
+            this.residents.add(person);
+        } else {
+            throw new IllegalArgumentException();
+        }
+        
+        
     }
     
     public void showResidents() {
