@@ -6,9 +6,14 @@
 package telas;
 
 import app.Principal;
+import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.HeadlessException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,14 +53,15 @@ public class Home extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        saveButton = new javax.swing.JRadioButtonMenuItem();
         loadButton = new javax.swing.JRadioButtonMenuItem();
+        saveButton = new javax.swing.JRadioButtonMenuItem();
+        exportTxt = new javax.swing.JRadioButtonMenuItem();
         menuNew = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
-        menuNew1 = new javax.swing.JMenu();
+        showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
-        newPersonButton1 = new javax.swing.JRadioButtonMenuItem();
+        showCosts = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -189,6 +195,16 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        loadButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        loadButton.setBackground(new java.awt.Color(182, 224, 224));
+        loadButton.setText("Load");
+        loadButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadButtonActionPerformed(evt);
+            }
+        });
+        fileMenu.add(loadButton);
+
         saveButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveButton.setBackground(new java.awt.Color(182, 224, 224));
         saveButton.setText("Save");
@@ -199,15 +215,15 @@ public class Home extends javax.swing.JFrame {
         });
         fileMenu.add(saveButton);
 
-        loadButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        loadButton.setBackground(new java.awt.Color(182, 224, 224));
-        loadButton.setText("Load");
-        loadButton.addActionListener(new java.awt.event.ActionListener() {
+        exportTxt.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        exportTxt.setBackground(new java.awt.Color(182, 224, 224));
+        exportTxt.setText("Export txt");
+        exportTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loadButtonActionPerformed(evt);
+                exportTxtActionPerformed(evt);
             }
         });
-        fileMenu.add(loadButton);
+        fileMenu.add(exportTxt);
 
         jMenuBar1.add(fileMenu);
 
@@ -241,11 +257,11 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar1.add(menuNew);
 
-        menuNew1.setForeground(new java.awt.Color(31, 108, 103));
-        menuNew1.setText("Show");
-        menuNew1.addActionListener(new java.awt.event.ActionListener() {
+        showMenu.setForeground(new java.awt.Color(31, 108, 103));
+        showMenu.setText("Show");
+        showMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuNew1ActionPerformed(evt);
+                showMenuActionPerformed(evt);
             }
         });
 
@@ -256,18 +272,18 @@ public class Home extends javax.swing.JFrame {
                 showDwellersActionPerformed(evt);
             }
         });
-        menuNew1.add(showDwellers);
+        showMenu.add(showDwellers);
 
-        newPersonButton1.setBackground(new java.awt.Color(182, 224, 224));
-        newPersonButton1.setText("Costs");
-        newPersonButton1.addActionListener(new java.awt.event.ActionListener() {
+        showCosts.setBackground(new java.awt.Color(182, 224, 224));
+        showCosts.setText("Costs");
+        showCosts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newPersonButton1ActionPerformed(evt);
+                showCostsActionPerformed(evt);
             }
         });
-        menuNew1.add(newPersonButton1);
+        showMenu.add(showCosts);
 
-        jMenuBar1.add(menuNew1);
+        jMenuBar1.add(showMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -326,34 +342,25 @@ public class Home extends javax.swing.JFrame {
         Principal.republic.showResidents();
     }//GEN-LAST:event_showDwellersActionPerformed
 
-    private void newPersonButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButton1ActionPerformed
+    private void showCostsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCostsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newPersonButton1ActionPerformed
+    }//GEN-LAST:event_showCostsActionPerformed
 
-    private void menuNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNew1ActionPerformed
+    private void showMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menuNew1ActionPerformed
+    }//GEN-LAST:event_showMenuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = nameEntry.getText();
         String email = emailEntry.getText();
-        float income;
+        String income = incomeEntry.getText();
+        
         try {
-            income = Float.parseFloat(incomeEntry.getText());
-        } catch(Exception ex) {
-            income = 0;
+            Principal.republic.addPerson(name, email, income);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+        } catch(IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(null, "Dados inválidos\nPor favor repita a operação");
         }
-        Republic myRepublic = Principal.republic;
-        
-        if(!name.isEmpty() && !email.isEmpty() && income != 0) {
-            
-            myRepublic.addPerson(name, email, income);
-            JOptionPane.showMessageDialog(null, "Cadastrado");
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos!");
-        }
-        
         
         nameEntry.setText("");
         emailEntry.setText("");
@@ -365,7 +372,8 @@ public class Home extends javax.swing.JFrame {
         int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
         
         if (showConfirmDialog == JOptionPane.YES_OPTION) {
-            Principal.republic.recordResidents();
+            FileHandler.saveObject(Principal.republic, "alunos.bin");
+            JOptionPane.showMessageDialog(null, "Saved succefully!");
         } else {
             JOptionPane.showMessageDialog(null, "Aborted!");
         }
@@ -373,12 +381,22 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        // TODO add your handling code here:
+        Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
+        JOptionPane.showMessageDialog(null, "Loaded file");
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void fileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fileMenuActionPerformed
+
+    private void exportTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTxtActionPerformed
+        try {
+            FileHandler.exportObject(Principal.republic, "alunos.txt");
+            JOptionPane.showMessageDialog(null, "Exportado com sucesso!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na exportação!");
+        }
+    }//GEN-LAST:event_exportTxtActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,6 +436,7 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Root;
     private javax.swing.JTextField emailEntry;
+    private javax.swing.JRadioButtonMenuItem exportTxt;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formPerson;
     private javax.swing.JRadioButtonMenuItem homeButton;
@@ -432,11 +451,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JMenu menuNew;
-    private javax.swing.JMenu menuNew1;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
-    private javax.swing.JRadioButtonMenuItem newPersonButton1;
     private javax.swing.JRadioButtonMenuItem saveButton;
+    private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
+    private javax.swing.JMenu showMenu;
     // End of variables declaration//GEN-END:variables
 }

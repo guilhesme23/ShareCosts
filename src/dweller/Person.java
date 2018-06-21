@@ -5,11 +5,13 @@
  */
 package dweller;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guilherme
  */
-public class Person {
+public class Person implements Serializable {
     private String name;
     private String email;
     private float income;
@@ -51,7 +53,11 @@ public class Person {
     @Override
     public String toString() {
         
-        String result = this.name + "\n" + this.email + "\n" + this.income + "\n";
+        String result = "Name: " + this.name 
+                        + "\n" 
+                        + "Email: " + this.email 
+                        + "\n" 
+                        + "Income: " + this.income + "\n";
     
         return result;
     }

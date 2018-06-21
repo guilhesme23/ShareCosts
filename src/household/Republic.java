@@ -3,8 +3,10 @@ package household;
 import dweller.Person;
 import expenditure.Cost;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -45,10 +47,21 @@ public class Republic implements Serializable {
         this.costs = costs;
     }
     
-    public void addPerson(String name, String email, float income) {
-        Person person = new Person(name,email,income);
+    public void addPerson(String name, String email, String income) throws IllegalArgumentException {
+        Person person;
+        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String nameRegex = "\\D+";
+        String incomeRegex = "\\d+\\.?\\d{0,}";
         
-        this.residents.add(person);
+        if (name.matches(nameRegex) && email.matches(emailRegex) && income.matches(incomeRegex)) {
+            float value = Float.parseFloat(income);
+            person = new Person(name, email, value);
+            this.residents.add(person);
+        } else {
+            throw new IllegalArgumentException();
+        }
+        
+        
     }
     
     public void showResidents() {
@@ -77,7 +90,7 @@ public class Republic implements Serializable {
         ObjectOutputStream output;
         try {
             output = new ObjectOutputStream(new FileOutputStream(file));
-            output.writeObject(this.residents);
+            output.writeObject(residents);
             output.close();
         } catch (IOException ex) {
             Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,4 +99,31 @@ public class Republic implements Serializable {
         
     }
     
+    public void loadResidents() {
+        File file = new File("alunos.txt");
+        
+        ObjectInputStream input;
+        
+        try {
+            input = new ObjectInputStream(new FileInputStream(file));
+            residents = (LinkedList<Person>) input.readObject();
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    @Override
+    public String toString() {
+        
+        String result = "Alunos:\n";
+        String separator = "#######################################\n";
+        
+        for (Person p: residents) {
+            result += separator;
+            result += p.toString();
+        }
+        
+        return result;
+    }
 }
