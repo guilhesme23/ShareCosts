@@ -5,11 +5,13 @@
  */
 package dweller;
 
+import java.io.Serializable;
+
 /**
  *
  * @author guilherme
  */
-public class Person {
+public class Person implements Serializable {
     private String name;
     private String email;
     private float income;

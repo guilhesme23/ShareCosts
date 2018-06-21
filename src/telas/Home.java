@@ -53,9 +53,9 @@ public class Home extends javax.swing.JFrame {
         menuNew = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
-        menuNew1 = new javax.swing.JMenu();
+        showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
-        newPersonButton1 = new javax.swing.JRadioButtonMenuItem();
+        showCosts = new javax.swing.JRadioButtonMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -241,11 +241,11 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar1.add(menuNew);
 
-        menuNew1.setForeground(new java.awt.Color(31, 108, 103));
-        menuNew1.setText("Show");
-        menuNew1.addActionListener(new java.awt.event.ActionListener() {
+        showMenu.setForeground(new java.awt.Color(31, 108, 103));
+        showMenu.setText("Show");
+        showMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuNew1ActionPerformed(evt);
+                showMenuActionPerformed(evt);
             }
         });
 
@@ -256,18 +256,18 @@ public class Home extends javax.swing.JFrame {
                 showDwellersActionPerformed(evt);
             }
         });
-        menuNew1.add(showDwellers);
+        showMenu.add(showDwellers);
 
-        newPersonButton1.setBackground(new java.awt.Color(182, 224, 224));
-        newPersonButton1.setText("Costs");
-        newPersonButton1.addActionListener(new java.awt.event.ActionListener() {
+        showCosts.setBackground(new java.awt.Color(182, 224, 224));
+        showCosts.setText("Costs");
+        showCosts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newPersonButton1ActionPerformed(evt);
+                showCostsActionPerformed(evt);
             }
         });
-        menuNew1.add(newPersonButton1);
+        showMenu.add(showCosts);
 
-        jMenuBar1.add(menuNew1);
+        jMenuBar1.add(showMenu);
 
         setJMenuBar(jMenuBar1);
 
@@ -326,17 +326,19 @@ public class Home extends javax.swing.JFrame {
         Principal.republic.showResidents();
     }//GEN-LAST:event_showDwellersActionPerformed
 
-    private void newPersonButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButton1ActionPerformed
+    private void showCostsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCostsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newPersonButton1ActionPerformed
+    }//GEN-LAST:event_showCostsActionPerformed
 
-    private void menuNew1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNew1ActionPerformed
+    private void showMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_menuNew1ActionPerformed
+    }//GEN-LAST:event_showMenuActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = nameEntry.getText();
         String email = emailEntry.getText();
+        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String nameRegex = "\\D+";
         float income;
         try {
             income = Float.parseFloat(incomeEntry.getText());
@@ -344,6 +346,16 @@ public class Home extends javax.swing.JFrame {
             income = 0;
         }
         Republic myRepublic = Principal.republic;
+        
+        if (!email.matches(emailRegex)) {
+            JOptionPane.showMessageDialog(null, "Insira um email válido");
+            email = "";
+        }
+        
+        if (!name.matches(nameRegex)) {
+            JOptionPane.showMessageDialog(null, "Nomes devem conter apenas letras!");
+            name = "";
+        }
         
         if(!name.isEmpty() && !email.isEmpty() && income != 0) {
             
@@ -366,6 +378,7 @@ public class Home extends javax.swing.JFrame {
         
         if (showConfirmDialog == JOptionPane.YES_OPTION) {
             Principal.republic.recordResidents();
+            JOptionPane.showMessageDialog(null, "Saved succefully!");
         } else {
             JOptionPane.showMessageDialog(null, "Aborted!");
         }
@@ -373,7 +386,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        // TODO add your handling code here:
+        Principal.republic.loadResidents();
+        JOptionPane.showMessageDialog(null, "Loaded file");
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void fileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileMenuActionPerformed
@@ -432,11 +446,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JMenu menuNew;
-    private javax.swing.JMenu menuNew1;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
-    private javax.swing.JRadioButtonMenuItem newPersonButton1;
     private javax.swing.JRadioButtonMenuItem saveButton;
+    private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
+    private javax.swing.JMenu showMenu;
     // End of variables declaration//GEN-END:variables
 }

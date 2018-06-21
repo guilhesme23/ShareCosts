@@ -3,8 +3,10 @@ package household;
 import dweller.Person;
 import expenditure.Cost;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.Iterator;
@@ -77,7 +79,7 @@ public class Republic implements Serializable {
         ObjectOutputStream output;
         try {
             output = new ObjectOutputStream(new FileOutputStream(file));
-            output.writeObject(this.residents);
+            output.writeObject(residents);
             output.close();
         } catch (IOException ex) {
             Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
@@ -86,4 +88,17 @@ public class Republic implements Serializable {
         
     }
     
+    public void loadResidents() {
+        File file = new File("alunos.txt");
+        
+        ObjectInputStream input;
+        
+        try {
+            input = new ObjectInputStream(new FileInputStream(file));
+            residents = (LinkedList<Person>) input.readObject();
+        } catch (IOException | ClassNotFoundException ex) {
+            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 }

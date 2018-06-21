@@ -94,7 +94,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="menuNew1">
+        <Menu class="javax.swing.JMenu" name="showMenu">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="67" green="6c" red="1f" type="rgb"/>
@@ -102,7 +102,7 @@
             <Property name="text" type="java.lang.String" value="Show"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuNew1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showMenuActionPerformed"/>
           </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JRadioButtonMenuItem" name="showDwellers">
@@ -116,7 +116,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showDwellersActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="newPersonButton1">
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="showCosts">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e0" green="e0" red="b6" type="rgb"/>
@@ -124,7 +124,7 @@
                 <Property name="text" type="java.lang.String" value="Costs"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newPersonButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showCostsActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
