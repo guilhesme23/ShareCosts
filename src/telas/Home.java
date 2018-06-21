@@ -6,9 +6,11 @@
 package telas;
 
 import app.Principal;
+import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 
 /**
@@ -342,7 +344,7 @@ public class Home extends javax.swing.JFrame {
         try {
             Principal.republic.addPerson(name, email, income);
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
-        } catch(Exception ex) {
+        } catch(IllegalArgumentException ex) {
             JOptionPane.showMessageDialog(null, "Dados inválidos\nPor favor repita a operação");
         }
         
@@ -356,7 +358,7 @@ public class Home extends javax.swing.JFrame {
         int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
         
         if (showConfirmDialog == JOptionPane.YES_OPTION) {
-            Principal.republic.recordResidents();
+            FileHandler.saveObject(Principal.republic, "alunos.dat");
             JOptionPane.showMessageDialog(null, "Saved succefully!");
         } else {
             JOptionPane.showMessageDialog(null, "Aborted!");
@@ -365,7 +367,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        Principal.republic.loadResidents();
+        Principal.republic = (Republic) FileHandler.loadObject("alunos.dat");
         JOptionPane.showMessageDialog(null, "Loaded file");
     }//GEN-LAST:event_loadButtonActionPerformed
 
