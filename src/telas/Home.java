@@ -51,14 +51,29 @@ public class Home extends javax.swing.JFrame {
         incomeEntry = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        formEditPerson = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        newName = new javax.swing.JTextField();
+        newEmail = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        newIncome = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
         saveButton = new javax.swing.JRadioButtonMenuItem();
         exportTxt = new javax.swing.JRadioButtonMenuItem();
-        menuNew = new javax.swing.JMenu();
+        newMenu = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
+        editMenu = new javax.swing.JMenu();
+        editPerson = new javax.swing.JRadioButtonMenuItem();
         showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
         showCosts = new javax.swing.JRadioButtonMenuItem();
@@ -184,6 +199,126 @@ public class Home extends javax.swing.JFrame {
 
         Root.add(formPerson, "newPerson");
 
+        formEditPerson.setBackground(new java.awt.Color(226, 242, 243));
+        formEditPerson.setName(""); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel6.setText("Edit Person");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabel7.setText("Name:");
+
+        jLabel8.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabel8.setText("Email:");
+
+        jLabel9.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabel9.setText("Income:");
+
+        jButton2.setBackground(new java.awt.Color(134, 205, 205));
+        jButton2.setText("Apply");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel10.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabel10.setText("Select Person:");
+
+        jButton3.setBackground(new java.awt.Color(134, 205, 205));
+        jButton3.setText("Select");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(134, 205, 205));
+        jButton4.setText("Cancel");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formEditPersonLayout = new javax.swing.GroupLayout(formEditPerson);
+        formEditPerson.setLayout(formEditPersonLayout);
+        formEditPersonLayout.setHorizontalGroup(
+            formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formEditPersonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formEditPersonLayout.createSequentialGroup()
+                        .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(newName)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newEmail)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newIncome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(formEditPersonLayout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 164, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formEditPersonLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jButton3))))
+                    .addGroup(formEditPersonLayout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
+                .addContainerGap())
+        );
+        formEditPersonLayout.setVerticalGroup(
+            formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formEditPersonLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel10))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(newName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formEditPersonLayout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(newIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addContainerGap())
+        );
+
+        Root.add(formEditPerson, "editPerson");
+
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
 
@@ -227,11 +362,11 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar1.add(fileMenu);
 
-        menuNew.setForeground(new java.awt.Color(31, 108, 103));
-        menuNew.setText("New");
-        menuNew.addActionListener(new java.awt.event.ActionListener() {
+        newMenu.setForeground(new java.awt.Color(31, 108, 103));
+        newMenu.setText("New");
+        newMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuNewActionPerformed(evt);
+                newMenuActionPerformed(evt);
             }
         });
 
@@ -243,7 +378,7 @@ public class Home extends javax.swing.JFrame {
                 homeButtonActionPerformed(evt);
             }
         });
-        menuNew.add(homeButton);
+        newMenu.add(homeButton);
 
         newPersonButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         newPersonButton.setBackground(new java.awt.Color(182, 224, 224));
@@ -253,9 +388,28 @@ public class Home extends javax.swing.JFrame {
                 newPersonButtonActionPerformed(evt);
             }
         });
-        menuNew.add(newPersonButton);
+        newMenu.add(newPersonButton);
 
-        jMenuBar1.add(menuNew);
+        jMenuBar1.add(newMenu);
+
+        editMenu.setForeground(new java.awt.Color(31, 108, 103));
+        editMenu.setText("Edit");
+        editMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editMenuActionPerformed(evt);
+            }
+        });
+
+        editPerson.setBackground(new java.awt.Color(182, 224, 224));
+        editPerson.setText("Edit Person");
+        editPerson.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPersonActionPerformed(evt);
+            }
+        });
+        editMenu.add(editPerson);
+
+        jMenuBar1.add(editMenu);
 
         showMenu.setForeground(new java.awt.Color(31, 108, 103));
         showMenu.setText("Show");
@@ -323,10 +477,10 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2MouseEntered
 
-    private void menuNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewActionPerformed
+    private void newMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMenuActionPerformed
         CardLayout card = (CardLayout) Root.getLayout();
         card.show(Root,"home");
-    }//GEN-LAST:event_menuNewActionPerformed
+    }//GEN-LAST:event_newMenuActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
         CardLayout card = (CardLayout) Root.getLayout();
@@ -398,6 +552,39 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_exportTxtActionPerformed
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void editPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"editPerson");
+    }//GEN-LAST:event_editPersonActionPerformed
+
+    private void editMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editMenuActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -435,23 +622,38 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Root;
+    private javax.swing.JMenu editMenu;
+    private javax.swing.JRadioButtonMenuItem editPerson;
     private javax.swing.JTextField emailEntry;
     private javax.swing.JRadioButtonMenuItem exportTxt;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
     private javax.swing.JRadioButtonMenuItem homeButton;
     private javax.swing.JPanel homeCard;
     private javax.swing.JTextField incomeEntry;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JRadioButtonMenuItem loadButton;
-    private javax.swing.JMenu menuNew;
     private javax.swing.JTextField nameEntry;
+    private javax.swing.JTextField newEmail;
+    private javax.swing.JTextField newIncome;
+    private javax.swing.JMenu newMenu;
+    private javax.swing.JTextField newName;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
     private javax.swing.JRadioButtonMenuItem saveButton;
     private javax.swing.JRadioButtonMenuItem showCosts;
