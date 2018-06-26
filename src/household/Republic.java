@@ -34,6 +34,14 @@ public class Republic implements Serializable {
     public LinkedList<Person> getResidents() {
         return residents;
     }
+    
+    public String[] getResidentsNames() {
+        LinkedList<String> names = new LinkedList<>();
+        for(Person p: residents) {
+            names.add(p.getName());
+        }
+        return (String[]) names.toArray();
+    }
 
     public LinkedList<Cost> getCosts() {
         return costs;
@@ -48,19 +56,8 @@ public class Republic implements Serializable {
     }
     
     public void addPerson(String name, String email, String income) throws IllegalArgumentException {
-        Person person;
-        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
-        String nameRegex = "\\D+";
-        String incomeRegex = "\\d+\\.?\\d{0,}";
-        
-        if (name.matches(nameRegex) && email.matches(emailRegex) && income.matches(incomeRegex)) {
-            float value = Float.parseFloat(income);
-            person = new Person(name, email, value);
-            this.residents.add(person);
-        } else {
-            throw new IllegalArgumentException();
-        }
-        
+        Person person = new Person(name,email,income);
+        this.residents.add(person);
         
     }
     
@@ -79,39 +76,15 @@ public class Republic implements Serializable {
         }
     }
     
-    public void recordResidents() {
-        File file = new File("alunos.txt");
-        file.delete();
-        try {
-            file.createNewFile();
-        } catch (IOException ex) {
-            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        ObjectOutputStream output;
-        try {
-            output = new ObjectOutputStream(new FileOutputStream(file));
-            output.writeObject(residents);
-            output.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
+    public Person searchPerson(String name) {
+        for (Person next : residents) {
+            if (next.getName().equals(name)) {
+                return next;
+            }
         }
         
-        
-    }
-    
-    public void loadResidents() {
-        File file = new File("alunos.txt");
-        
-        ObjectInputStream input;
-        
-        try {
-            input = new ObjectInputStream(new FileInputStream(file));
-            residents = (LinkedList<Person>) input.readObject();
-        } catch (IOException | ClassNotFoundException ex) {
-            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
+        return null;
+    }    
     
     @Override
     public String toString() {

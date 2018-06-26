@@ -6,15 +6,21 @@
 package telas;
 
 import app.Principal;
+import dweller.Person;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.ListModel;
 
 /**
  *
@@ -60,10 +66,11 @@ public class Home extends javax.swing.JFrame {
         newIncome = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        namesList = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
@@ -234,8 +241,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel10.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel10.setText("Select Person:");
 
@@ -255,6 +260,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        namesList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "item1", "item2", "item3", "item4", "item5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        namesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(namesList);
+
         javax.swing.GroupLayout formEditPersonLayout = new javax.swing.GroupLayout(formEditPerson);
         formEditPerson.setLayout(formEditPersonLayout);
         formEditPersonLayout.setHorizontalGroup(
@@ -262,27 +275,24 @@ public class Home extends javax.swing.JFrame {
             .addGroup(formEditPersonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(newName)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newEmail)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newIncome))
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(formEditPersonLayout.createSequentialGroup()
-                        .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(newName)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newEmail)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(newIncome))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(formEditPersonLayout.createSequentialGroup()
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 164, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formEditPersonLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton3))))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formEditPersonLayout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
@@ -294,25 +304,24 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jLabel10))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(newName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(formEditPersonLayout.createSequentialGroup()
+                        .addComponent(newName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(newEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(newIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(newEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(newIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
+                    .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
@@ -565,10 +574,46 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Resolvendo aqui irmão
+        String selected = namesList.getSelectedValue();
+        Republic r = Principal.republic;
+        LinkedList<Person> residents = r.getResidents();
+        int index = namesList.getSelectedIndex();
+        if (selected != null) {
+            Person p = r.searchPerson(selected);
+            String name = newName.getText();
+            String email = newEmail.getText();
+            String income = newIncome.getText();
+            Person newPerson;
+            
+            try {
+                newPerson = new Person(name,email,income);
+            } catch(Exception e) {
+                JOptionPane.showMessageDialog(null, "Insira dados válidos!");
+                newName.setText(p.getName());
+                newEmail.setText(p.getEmail());
+                newIncome.setText(Float.toString(p.getIncome()));
+                
+                return;
+            }
+            
+            residents.set(index, newPerson);
+            JOptionPane.showMessageDialog(null, "Atualizado com sucesso!");
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma pessoa primeiro!");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void editPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        model.clear();
+
+        for(Person p: Principal.republic.getResidents()) {
+            model.addElement(p.getName());
+        }
+        
+        namesList.setModel(model);
         CardLayout card = (CardLayout) Root.getLayout();
         card.show(Root,"editPerson");
     }//GEN-LAST:event_editPersonActionPerformed
@@ -578,11 +623,23 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_editMenuActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        String selected = namesList.getSelectedValue();
+        Republic r = Principal.republic;
+        if(selected != null) {
+            Person p = r.searchPerson(selected);
+            newName.setText(p.getName());
+            newEmail.setText(p.getEmail());
+            newIncome.setText(Float.toString(p.getIncome()));
+           
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma Pessoa!");
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"home");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -636,7 +693,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -648,8 +704,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JTextField nameEntry;
+    private javax.swing.JList<String> namesList;
     private javax.swing.JTextField newEmail;
     private javax.swing.JTextField newIncome;
     private javax.swing.JMenu newMenu;

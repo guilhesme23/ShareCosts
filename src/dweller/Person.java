@@ -26,6 +26,22 @@ public class Person implements Serializable {
         this.income = income;
     }
     
+    public Person(String name, String email, String income) throws IllegalArgumentException {
+        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String nameRegex = "\\D+";
+        String incomeRegex = "\\d+\\.?\\d{0,}";
+        
+        if (name.matches(nameRegex) && email.matches(emailRegex) && income.matches(incomeRegex)) {
+            float value = Float.parseFloat(income);
+            this.name = name;
+            this.email = email;
+            this.income = value;
+        } else {
+            throw new IllegalArgumentException();
+        }
+        
+    }
+    
     public String getName() {
         return name;
     }
