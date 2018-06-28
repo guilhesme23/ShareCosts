@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/guilherme/Documentos/OO/Trabalho%20Final/ShareCosts/src/app/Principal.java</file>
-            <file>file:/home/guilherme/Documentos/OO/Trabalho%20Final/ShareCosts/src/dweller/Person.java</file>
-            <file>file:/home/guilherme/Documentos/OO/Trabalho%20Final/ShareCosts/src/household/Republic.java</file>
-            <file>file:/home/guilherme/Documentos/OO/Trabalho%20Final/ShareCosts/src/telas/Home.java</file>
+            <file>file:/home/vinicius/Documentos/projLanna/ShareCosts/src/household/Republic.java</file>
+            <file>file:/home/vinicius/Documentos/projLanna/ShareCosts/src/exceptions/DadosPessoaisIncompletosException.java</file>
+            <file>file:/home/vinicius/Documentos/projLanna/ShareCosts/src/telas/Home.java</file>
+            <file>file:/home/vinicius/Documentos/projLanna/ShareCosts/src/dweller/Person.java</file>
         </group>
     </open-files>
 </project-private>
