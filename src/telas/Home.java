@@ -7,6 +7,7 @@ package telas;
 
 import app.Principal;
 import dweller.Person;
+import exceptions.DadosPessoaisIncompletosException;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
@@ -631,8 +632,8 @@ public class Home extends javax.swing.JFrame {
         try {
             Principal.republic.addPerson(name, email, income);
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
-        } catch(IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(null, "Dados inválidos\nPor favor repita a operação");
+        } catch(DadosPessoaisIncompletosException ex) {
+            JOptionPane.showMessageDialog(null, ex.getExceptionMessage());
         }
         
         nameEntry.setText("");
@@ -684,7 +685,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // Resolvendo aqui irmão
+      
         String selected = namesList.getSelectedValue();
         Republic r = Principal.republic;
         LinkedList<Person> residents = r.getResidents();
@@ -781,7 +782,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseEntered
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        //A ação é aqui
+
         int index = namesDeleteList.getSelectedIndex();
         if (index != -1) {
             LinkedList<Person> residents = Principal.republic.getResidents();

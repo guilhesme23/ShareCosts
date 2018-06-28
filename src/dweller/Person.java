@@ -5,7 +5,9 @@
  */
 package dweller;
 
+import exceptions.DadosPessoaisIncompletosException;
 import java.io.Serializable;
+
 
 /**
  *
@@ -26,7 +28,7 @@ public class Person implements Serializable {
         this.income = income;
     }
     
-    public Person(String name, String email, String income) throws IllegalArgumentException {
+    public Person(String name, String email, String income) throws DadosPessoaisIncompletosException {
         String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
         String nameRegex = "\\D+";
         String incomeRegex = "\\d+\\.?\\d{0,}";
@@ -37,7 +39,7 @@ public class Person implements Serializable {
             this.email = email;
             this.income = value;
         } else {
-            throw new IllegalArgumentException();
+            throw new DadosPessoaisIncompletosException();
         }
         
     }

@@ -1,6 +1,7 @@
 package household;
 
 import dweller.Person;
+import exceptions.DadosPessoaisIncompletosException;
 import expenditure.Cost;
 import java.io.File;
 import java.io.FileInputStream;
@@ -55,7 +56,7 @@ public class Republic implements Serializable {
         this.costs = costs;
     }
     
-    public void addPerson(String name, String email, String income) throws IllegalArgumentException {
+    public void addPerson(String name, String email, String income) throws DadosPessoaisIncompletosException {
         Person person = new Person(name,email,income);
         this.residents.add(person);
         
