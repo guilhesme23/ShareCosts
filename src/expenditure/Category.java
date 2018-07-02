@@ -1,13 +1,17 @@
 package expenditure;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author guilherme
  */
+
 public class Category {
     private String desc;
-    private Category sub;
+    private LinkedList<Category> sub = new LinkedList<>();
 
+   
     public Category() {
     }
 
@@ -15,26 +19,49 @@ public class Category {
         this.desc = desc;
     }
 
-    public Category(String desc, Category sub) {
+    public String getDesc() {
+            return desc;
+    }
+
+    public LinkedList<Category> getSub(){
+        return sub;
+    }
+     
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+    
+    public void addSub(Category categ){
+        sub.add(categ);
+    }
+    
+ 
+    /*public Category(String desc, Category sub) {
         this.desc = desc;
         this.sub = sub;
     }
 
-    public String getDesc() {
-        return desc;
-    }
-
+    
     public Category getSub() {
         return sub;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+  
 
     public void setSub(Category sub) {
         this.sub = sub;
     }
     
-    
+    protected  Categoria procurarSubCat(String desc){
+       
+        Categoria resposta = null;
+        for (Categoria tmp : subCats) {
+            if(tmp.getDesc().equals(desc)){
+                resposta = tmp;
+            }
+        }
+        return resposta;
+    }
+
+    */
 }

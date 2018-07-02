@@ -3,6 +3,7 @@ package household;
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
 import expenditure.Cost;
+import expenditure.Category;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,13 +24,15 @@ import javax.swing.JOptionPane;
 public class Republic implements Serializable {
     private LinkedList<Person> residents = new LinkedList<>();
     private LinkedList<Cost> costs = new LinkedList<>();
+    private LinkedList<Category> category = new LinkedList<>();
 
     public Republic() {
     }
 
-    public Republic(LinkedList<Person> residents, LinkedList<Cost> costs) {
+    public Republic(LinkedList<Person> residents, LinkedList<Cost> costs, LinkedList<Category> category){
         this.residents = residents;
         this.costs = costs;
+        this.category = category;
     }
 
     public LinkedList<Person> getResidents() {
@@ -47,6 +50,10 @@ public class Republic implements Serializable {
     public LinkedList<Cost> getCosts() {
         return costs;
     }
+    
+    public LinkedList<Category> getCategory() {
+        return category;
+    }
 
     public void setResidents(LinkedList<Person> residents) {
         this.residents = residents;
@@ -54,6 +61,10 @@ public class Republic implements Serializable {
 
     public void setCosts(LinkedList<Cost> costs) {
         this.costs = costs;
+    }
+    
+    public void setCategory(LinkedList<Category> category) {
+        this.category = category;
     }
     
     public void addPerson(String name, String email, String income) throws DadosPessoaisIncompletosException {
