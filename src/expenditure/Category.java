@@ -1,13 +1,15 @@
 package expenditure;
 
+import java.io.Serializable;
 import java.util.LinkedList;
+import exceptions.CategoriaNaoInformadaException;
 
 /**
  *
  * @author guilherme
  */
 
-public class Category {
+public class Category implements Serializable{
     private String desc;
     private LinkedList<Category> sub = new LinkedList<>();
 
@@ -15,10 +17,29 @@ public class Category {
     public Category() {
     }
 
-    public Category(String desc) {
+    public Category(String desc, LinkedList<Category> sub) {
         this.desc = desc;
+        this.sub = sub;
     }
 
+    /**
+     *
+     * @param desc
+     * @param sub
+     * @throws exceptions.CategoriaNaoInformadaException
+     */
+    public Category(String desc, Category sub) throws CategoriaNaoInformadaException{
+        String descRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String subRegex = "\\D+";
+        
+        if(desc.matches(descRegex) && sub.matches(subRegex)){
+           this.desc = desc;
+           this.sub = sub;
+        } else{
+            throw new CategoriaNaoInformadaException();
+        }
+    }
+    
     public String getDesc() {
             return desc;
     }
@@ -35,7 +56,13 @@ public class Category {
         sub.add(categ);
     }
     
- 
+    public String toString(){
+        String result = "Desc: " +this.desc
+                        + "\n"
+                        + "Subcategory: " + this.sub +"\n";
+        
+        return result;
+    }
     /*public Category(String desc, Category sub) {
         this.desc = desc;
         this.sub = sub;
