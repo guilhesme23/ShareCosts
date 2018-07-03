@@ -798,7 +798,7 @@ public class Home extends javax.swing.JFrame {
 
         newCostButton.setBackground(new java.awt.Color(182, 224, 224));
         newCostButton.setSelected(true);
-        newCostButton.setText("New Cost");
+        newCostButton.setText("Nova despesa");
         newCostButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newCostButtonActionPerformed(evt);
@@ -864,7 +864,7 @@ public class Home extends javax.swing.JFrame {
         showMenu.add(showDwellers);
 
         showCosts.setBackground(new java.awt.Color(182, 224, 224));
-        showCosts.setText("Custos");
+        showCosts.setText("Despesas");
         showCosts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showCostsActionPerformed(evt);
