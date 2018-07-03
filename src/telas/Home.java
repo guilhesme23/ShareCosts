@@ -9,6 +9,8 @@ import app.Principal;
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
 import exceptions.CategoriaNaoInformadaException;
+import exceptions.SubCategoriaNaoInformadaException;
+import expenditure.SubCategory;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
@@ -82,8 +84,9 @@ public class Home extends javax.swing.JFrame {
         namesDeleteList = new javax.swing.JList<>();
         formCategory = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        subEntry = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
@@ -93,6 +96,7 @@ public class Home extends javax.swing.JFrame {
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
         newCategoryButton = new javax.swing.JRadioButtonMenuItem();
+        newSubCategoryButton = new javax.swing.JRadioButtonMenuItem();
         editMenu = new javax.swing.JMenu();
         editPerson = new javax.swing.JRadioButtonMenuItem();
         deleteMenu = new javax.swing.JMenu();
@@ -133,7 +137,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(343, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         homeCardLayout.setVerticalGroup(
             homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,6 +170,18 @@ public class Home extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel3.setText("Name:");
 
+        nameEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameEntryActionPerformed(evt);
+            }
+        });
+
+        emailEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailEntryActionPerformed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel4.setText("Email:");
 
@@ -196,7 +212,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(incomeEntry))
                     .addComponent(jButton1))
-                .addContainerGap(278, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         formPersonLayout.setVerticalGroup(
             formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,7 +324,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formEditPersonLayout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
@@ -401,7 +417,7 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -430,9 +446,9 @@ public class Home extends javax.swing.JFrame {
 
         jLabel12.setText("SubCategoria");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        subEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                subEntryActionPerformed(evt);
             }
         });
 
@@ -451,17 +467,27 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(134, 205, 205));
+        jButton5.setText("Add");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout formCategoryLayout = new javax.swing.GroupLayout(formCategory);
         formCategory.setLayout(formCategoryLayout);
         formCategoryLayout.setHorizontalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formCategoryLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel12)
-                    .addComponent(jTextField1))
-                .addContainerGap(208, Short.MAX_VALUE))
+                .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
+                        .addComponent(subEntry))
+                    .addComponent(jButton5))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -469,13 +495,15 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addComponent(subEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(40, 40, 40)
                 .addComponent(jLabel13)
                 .addContainerGap())
         );
 
-        Root.add(formCategory, "card6");
+        Root.add(formCategory, "newCategory");
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
@@ -559,6 +587,16 @@ public class Home extends javax.swing.JFrame {
         });
         newMenu.add(newCategoryButton);
 
+        newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        newSubCategoryButton.setSelected(true);
+        newSubCategoryButton.setText(" New SubCategory");
+        newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newSubCategoryButtonActionPerformed(evt);
+            }
+        });
+        newMenu.add(newSubCategoryButton);
+
         jMenuBar1.add(newMenu);
 
         editMenu.setForeground(new java.awt.Color(31, 108, 103));
@@ -633,7 +671,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -872,9 +910,9 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"newCategory");
     }//GEN-LAST:event_newCategoryButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_subEntryActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
@@ -887,6 +925,33 @@ public class Home extends javax.swing.JFrame {
     private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String sub = subEntry.getText();
+        
+        try {
+            Principal.republic.addPerson(sub);
+            JOptionPane.showMessageDialog(null, "Cadastro realizado!");
+        } catch(SubCategoriaNaoInformadaException ex) {
+            JOptionPane.showMessageDialog(null, ex.getExceptionMessage());
+        }
+        
+        subEntry.setText("");
+                
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void nameEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameEntryActionPerformed
+
+    private void emailEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailEntryActionPerformed
+
+    private void newSubCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSubCategoryButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newSubCategory");
+    }//GEN-LAST:event_newSubCategoryButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -943,6 +1008,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -962,7 +1028,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JList<String> namesDeleteList;
@@ -973,9 +1038,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu newMenu;
     private javax.swing.JTextField newName;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
+    private javax.swing.JRadioButtonMenuItem newSubCategoryButton;
     private javax.swing.JRadioButtonMenuItem saveButton;
     private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
+    private javax.swing.JTextField subEntry;
     // End of variables declaration//GEN-END:variables
 }

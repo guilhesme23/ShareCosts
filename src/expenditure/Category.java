@@ -11,6 +11,42 @@ import exceptions.CategoriaNaoInformadaException;
 
 public class Category implements Serializable{
     String desc;
+    private LinkedList<Category> subCategory = new LinkedList<>();
+    
+    public Category(String desc){
+        this.desc = desc;
+    }
+    
+    protected String getDesc() {
+        return desc;
+    }
+
+    protected  LinkedList<Category> getSubCategory() {
+        return subCategory;
+    }
+
+    protected void setDesc(String desc) {
+        this.desc = desc;
+    }
+    
+    protected void addSubCategory(Category category){
+         subCategory.add(category);
+    }
+         
+    protected  Category findSubCategory(String desc){
+       
+        Category answer = null;
+        for (Category temporary : subCategory) {
+            if(temporary.getDesc().equals(desc)){
+                answer = temporary;
+            }
+        }
+        return answer;
+    }
+    
+}
+/*public class Category implements Serializable{
+    String desc;
     private LinkedList<Category> category = new LinkedList<>();
 
    
@@ -28,13 +64,13 @@ public class Category implements Serializable{
      * @param sub
      * @throws exceptions.CategoriaNaoInformadaException
      */
-    public Category(String desc) throws CategoriaNaoInformadaException{
+    /*public Category(String desc) throws CategoriaNaoInformadaException{
         String descRegex = "\\D";
-        //String subRegex = "\\D+";
         
-        if(desc.matches(descRegex)/* && sub.matches(subRegex)*/){
+        
+        if(desc.matches(descRegex)){
            this.desc = desc;
-           //this.sub = sub;
+           
         } else{
             throw new CategoriaNaoInformadaException();
         }
@@ -51,34 +87,16 @@ public class Category implements Serializable{
         this.desc = desc;
     }
     
-   /* public void addSub(Category categ){
-        sub.add(categ);
-    }
-    */
+   
     @Override
     public String toString(){
         String result = "Desc: " +this.desc
-                        + "\n"
-                       /* + "Subcategory: " + this.sub +"\n"*/;
+                        + "\n";
+   
         
         return result;
     }
-    /*public Category(String desc, Category sub) {
-        this.desc = desc;
-        this.sub = sub;
-    }
-
-    
-    public Category getSub() {
-        return sub;
-    }
-
-  
-
-    public void setSub(Category sub) {
-        this.sub = sub;
-    }
-    
+    /*
     protected  Categoria procurarSubCat(String desc){
        
         Categoria resposta = null;
@@ -92,4 +110,4 @@ public class Category implements Serializable{
 
     */
     
-}
+//}

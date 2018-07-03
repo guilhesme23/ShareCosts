@@ -5,6 +5,9 @@
  */
 package expenditure;
 
+import exceptions.SubCategoriaNaoInformadaException;
+import java.util.LinkedList;
+
 /**
  *
  * @author guilherme
@@ -13,6 +16,7 @@ public class Cost {
     private String desc;
     private Category category;
     private float value;
+    
 
     public Cost() {
     }
@@ -46,6 +50,11 @@ public class Cost {
     public void setValue(float value) {
         this.value = value;
     }
-    
+   
+    public void addSubCategory() throws SubCategoriaNaoInformadaException {
+    SubCategory sub = new SubCategory(sub);
+    this.subCategory.add(sub);
+        
+    }
     
 }
