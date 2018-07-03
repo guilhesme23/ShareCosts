@@ -1,6 +1,2 @@
 Republica:
 Alunos:
-#######################################
-Name: Asa
-Email: asasa@asasa.com
-Income: 1234.0

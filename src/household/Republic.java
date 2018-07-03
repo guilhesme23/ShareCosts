@@ -2,6 +2,7 @@ package household;
 
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
+import expenditure.Category;
 import expenditure.Cost;
 
 import java.io.File;
@@ -24,8 +25,20 @@ import javax.swing.JOptionPane;
 public class Republic implements Serializable {
     private LinkedList<Person> residents = new LinkedList<>();
     private LinkedList<Cost> costs = new LinkedList<>();
+    private LinkedList<Category> category = new LinkedList<>();
+    private LinkedList<Category> sub = new LinkedList<>();    
 
     public Republic() {
+        Category padrao = new Category();
+        try {
+            padrao.setDesc("Nenhum");
+        } catch (IOException ex) {
+            Logger.getLogger(Republic.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        padrao.setSub(null);
+        
+        this.sub.add(padrao);
+        
     }
 
     public Republic(LinkedList<Person> residents, LinkedList<Cost> costs){
@@ -42,9 +55,17 @@ public class Republic implements Serializable {
         for(Person p: residents) {
             names.add(p.getName());
         }
-        return (String[]) names.toArray();
+        return names.toArray(new String[0]);
     }
 
+    public String[] getCategoriesSubs() {
+        LinkedList<String> names = new LinkedList<>();
+        for(Category s: sub) {
+            names.add(s.getDesc());
+        }
+        return names.toArray(new String[0]);
+    }
+    
     public LinkedList<Cost> getCosts() {
         return costs;
     }
@@ -62,6 +83,23 @@ public class Republic implements Serializable {
         this.residents.add(person);
         
     }
+    
+    public void addCategory(String desc, int subIndex) throws IOException {
+        Category category = new Category();
+        category.setDesc(desc);
+        Category sub = this.sub.get(subIndex);
+        category.setSub(sub);
+        this.category.add(category);
+        
+    }
+    
+    public void addSubCategory(String desc) throws IOException {
+        Category sub = new Category();
+        sub.setDesc(desc);
+        sub.setSub(null);
+        this.sub.add(sub);
+    }
+    
     
     public void showResidents() {
         if (!residents.isEmpty()) {
@@ -86,7 +124,27 @@ public class Republic implements Serializable {
         }
         
         return null;
-    }    
+    }  
+    
+    public void showCategories() {
+        if (!category.isEmpty()) {
+            JOptionPane.showMessageDialog(null, category);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma categoria cadastrada!");
+        }
+    }
+    
+    public void showSubCategories() {
+        LinkedList<Category> temp = (LinkedList<Category>) sub.clone();
+        temp.removeFirst();
+        if (!temp.isEmpty()) {
+            JOptionPane.showMessageDialog(null, temp);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma sub categoria cadastrada!");
+        }
+    }
     
     @Override
     public String toString() {
@@ -101,8 +159,5 @@ public class Republic implements Serializable {
         
         return result;
     }
-
-    public void addCosts(String desc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }

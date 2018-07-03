@@ -19,8 +19,10 @@ import java.util.LinkedList;
 import java.util.Locale.Category;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -87,13 +89,13 @@ public class Home extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         descEntry = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        comboSubs = new javax.swing.JComboBox<>();
         formSubCategory = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         subEntry = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
@@ -112,6 +114,8 @@ public class Home extends javax.swing.JFrame {
         showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
         showCosts = new javax.swing.JRadioButtonMenuItem();
+        showCategories = new javax.swing.JRadioButtonMenuItem();
+        showSubCategories = new javax.swing.JRadioButtonMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -481,6 +485,8 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        jLabel17.setText("Escolha a categoria desta sub-categoria");
+
         jButton5.setBackground(new java.awt.Color(134, 205, 205));
         jButton5.setText("Add");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -488,6 +494,8 @@ public class Home extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
+
+        comboSubs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout formCategoryLayout = new javax.swing.GroupLayout(formCategory);
         formCategory.setLayout(formCategoryLayout);
@@ -500,8 +508,10 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12)
                         .addComponent(descEntry))
-                    .addComponent(jButton5))
-                .addContainerGap(226, Short.MAX_VALUE))
+                    .addComponent(jButton5)
+                    .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addContainerGap(165, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -510,7 +520,11 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(descEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(40, 40, 40)
                 .addComponent(jLabel13)
@@ -544,10 +558,6 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel17.setText("Escolha a categoria desta sub-categoria");
-
         jButton8.setBackground(new java.awt.Color(134, 205, 205));
         jButton8.setText("Add");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -567,10 +577,8 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel14)
                         .addComponent(subEntry))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
                     .addComponent(jButton8))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         formSubCategoryLayout.setVerticalGroup(
             formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -579,11 +587,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(subEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
                 .addComponent(jButton8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel16)
@@ -750,6 +754,24 @@ public class Home extends javax.swing.JFrame {
             }
         });
         showMenu.add(showCosts);
+
+        showCategories.setBackground(new java.awt.Color(182, 224, 224));
+        showCategories.setText("Categories");
+        showCategories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCategoriesActionPerformed(evt);
+            }
+        });
+        showMenu.add(showCategories);
+
+        showSubCategories.setBackground(new java.awt.Color(182, 224, 224));
+        showSubCategories.setText("Sub Categories");
+        showSubCategories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showSubCategoriesActionPerformed(evt);
+            }
+        });
+        showMenu.add(showSubCategories);
 
         jMenuBar1.add(showMenu);
 
@@ -928,6 +950,16 @@ public class Home extends javax.swing.JFrame {
         lista.setModel(model);
     }
     
+    private void updateCombo(JComboBox combo) {
+        combo.removeAllItems();
+        
+        String[] names = Principal.republic.getCategoriesSubs();
+        
+        for (String s : names) {
+            combo.addItem(s);
+        }
+    }
+    
     private void editMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editMenuActionPerformed
@@ -994,6 +1026,8 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void newCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCategoryButtonActionPerformed
+        updateCombo(comboSubs);
+        
         CardLayout card = (CardLayout) Root.getLayout();
         card.show(Root,"newCategory");
     }//GEN-LAST:event_newCategoryButtonActionPerformed
@@ -1016,16 +1050,15 @@ public class Home extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         String desc = descEntry.getText();
-        
+        int index = comboSubs.getSelectedIndex();
         try {
-            Principal.republic.addCosts(desc);
-            JOptionPane.showMessageDialog(null, "Cadastro realizado!");
-        } catch(CategoriaNaoInformadaException ex) {
-            JOptionPane.showMessageDialog(null, ex.getExceptionMessage());
+            Principal.republic.addCategory(desc, index);
+            JOptionPane.showMessageDialog(null, "Categoria inserida com sucesso!");
+            descEntry.setText("");
+            comboSubs.setSelectedIndex(0);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Insira um nome pra categoria!");
         }
-        
-        descEntry.setText("");
-          
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -1042,25 +1075,40 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"newSubCategory");
     }//GEN-LAST:event_newSubCategoryButtonActionPerformed
 
-    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_subEntryActionPerformed
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel16MouseExited
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String desc = subEntry.getText();
+        try {
+            Principal.republic.addSubCategory(desc);
+            JOptionPane.showMessageDialog(null, "Sub categoria cadastrada com sucesso!");
+            subEntry.setText("");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Insira uma Sub Categoria!");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel16MouseEntered
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subEntryActionPerformed
+
+    private void showCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCategoriesActionPerformed
+        Principal.republic.showCategories();
+    }//GEN-LAST:event_showCategoriesActionPerformed
+
+    private void showSubCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSubCategoriesActionPerformed
+        Principal.republic.showSubCategories();
+    }//GEN-LAST:event_showSubCategoriesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1099,6 +1147,7 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Root;
+    private javax.swing.JComboBox<String> comboSubs;
     private javax.swing.JMenu deleteMenu;
     private javax.swing.JRadioButtonMenuItem deletePerson;
     private javax.swing.JTextField descEntry;
@@ -1125,7 +1174,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1158,9 +1206,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem newPersonButton;
     private javax.swing.JRadioButtonMenuItem newSubCategoryButton;
     private javax.swing.JRadioButtonMenuItem saveButton;
+    private javax.swing.JRadioButtonMenuItem showCategories;
     private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
+    private javax.swing.JRadioButtonMenuItem showSubCategories;
     private javax.swing.JTextField subEntry;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,7 @@ package expenditure;
 import java.io.Serializable;
 import java.util.LinkedList;
 import exceptions.CategoriaNaoInformadaException;
+import java.io.IOException;
 
 /**
  *
@@ -10,41 +11,82 @@ import exceptions.CategoriaNaoInformadaException;
  */
 
 public class Category implements Serializable{
-    String desc;
-    private LinkedList<Category> subCategory = new LinkedList<>();
+    private String desc;
+    private Category sub;
     
     public Category(String desc){
         this.desc = desc;
     }
+
+    public Category() {
+    }
     
-    protected String getDesc() {
+    public String getDesc() {
         return desc;
     }
 
-    protected  LinkedList<Category> getSubCategory() {
-        return subCategory;
+    public Category getSub() {
+        return sub;
     }
 
-    protected void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesc(String desc) throws IOException {
+        if (!desc.isEmpty()) {
+            this.desc = desc;
+        } else {
+            throw new IOException();
+        }
+        
     }
     
-    protected void addSubCategory(Category category){
-         subCategory.add(category);
+    public void setSub(Category sub){
+        this.sub = sub;
     }
-         
-    protected  Category findSubCategory(String desc){
-       
-        Category answer = null;
-        for (Category temporary : subCategory) {
-            if(temporary.getDesc().equals(desc)){
-                answer = temporary;
-            }
+    
+    public String toString() {
+        String result;
+        if (sub != null) {
+            result = "Descrição: " + desc + "\n";
+            result += "Sub Categoria: " + sub.getDesc() + "\n";
+        } else {
+            result = "Descrição: " + desc + "\n";
         }
-        return answer;
+        return result;
     }
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*public class Category implements Serializable{
     String desc;
     private LinkedList<Category> category = new LinkedList<>();
