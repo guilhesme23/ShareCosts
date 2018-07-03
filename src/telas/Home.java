@@ -8,6 +8,7 @@ package telas;
 import app.Principal;
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
+import exceptions.CategoriaNaoInformadaException;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
@@ -15,10 +16,13 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Locale.Category;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListModel;
@@ -46,6 +50,8 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         Root = new javax.swing.JPanel();
         homeCard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -79,6 +85,18 @@ public class Home extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         namesDeleteList = new javax.swing.JList<>();
+        formCategory = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        descEntry = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        comboSubs = new javax.swing.JComboBox<>();
+        formSubCategory = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        subEntry = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
@@ -87,6 +105,8 @@ public class Home extends javax.swing.JFrame {
         newMenu = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
+        newCategoryButton = new javax.swing.JRadioButtonMenuItem();
+        newSubCategoryButton = new javax.swing.JRadioButtonMenuItem();
         editMenu = new javax.swing.JMenu();
         editPerson = new javax.swing.JRadioButtonMenuItem();
         deleteMenu = new javax.swing.JMenu();
@@ -94,6 +114,14 @@ public class Home extends javax.swing.JFrame {
         showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
         showCosts = new javax.swing.JRadioButtonMenuItem();
+        showCategories = new javax.swing.JRadioButtonMenuItem();
+        showSubCategories = new javax.swing.JRadioButtonMenuItem();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -127,12 +155,12 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         homeCardLayout.setVerticalGroup(
             homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeCardLayout.createSequentialGroup()
-                .addContainerGap(236, Short.MAX_VALUE)
+                .addContainerGap(338, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -159,6 +187,18 @@ public class Home extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel3.setText("Name:");
+
+        nameEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameEntryActionPerformed(evt);
+            }
+        });
+
+        emailEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                emailEntryActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel4.setText("Email:");
@@ -190,7 +230,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(incomeEntry))
                     .addComponent(jButton1))
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
         formPersonLayout.setVerticalGroup(
             formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +249,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(incomeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
@@ -302,7 +342,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formEditPersonLayout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
@@ -331,7 +371,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
@@ -395,7 +435,7 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,12 +453,148 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addContainerGap())
         );
 
         Root.add(formDeletePerson, "deletePerson");
+
+        formCategory.setBackground(new java.awt.Color(226, 242, 243));
+
+        jLabel12.setText("Categoria");
+
+        descEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descEntryActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel13.setText("Add Category");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+        });
+
+        jLabel17.setText("Escolha a categoria desta sub-categoria");
+
+        jButton5.setBackground(new java.awt.Color(134, 205, 205));
+        jButton5.setText("Add");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        comboSubs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout formCategoryLayout = new javax.swing.GroupLayout(formCategory);
+        formCategory.setLayout(formCategoryLayout);
+        formCategoryLayout.setHorizontalGroup(
+            formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel12)
+                        .addComponent(descEntry))
+                    .addComponent(jButton5)
+                    .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        formCategoryLayout.setVerticalGroup(
+            formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(descEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(jButton5)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel13)
+                .addContainerGap())
+        );
+
+        Root.add(formCategory, "newCategory");
+
+        formSubCategory.setBackground(new java.awt.Color(226, 242, 243));
+
+        jLabel14.setText("Sub-Categoria");
+
+        subEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subEntryActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel16.setText("Add Sub-Category");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
+        });
+
+        jButton8.setBackground(new java.awt.Color(134, 205, 205));
+        jButton8.setText("Add");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formSubCategoryLayout = new javax.swing.GroupLayout(formSubCategory);
+        formSubCategory.setLayout(formSubCategoryLayout);
+        formSubCategoryLayout.setHorizontalGroup(
+            formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formSubCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addComponent(subEntry))
+                    .addComponent(jButton8))
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+        formSubCategoryLayout.setVerticalGroup(
+            formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formSubCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(subEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16)
+                .addContainerGap())
+        );
+
+        Root.add(formSubCategory, "newSubCategory");
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
@@ -491,6 +667,28 @@ public class Home extends javax.swing.JFrame {
         });
         newMenu.add(newPersonButton);
 
+        newCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        newCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
+        newCategoryButton.setSelected(true);
+        newCategoryButton.setText("New Category");
+        newCategoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCategoryButtonActionPerformed(evt);
+            }
+        });
+        newMenu.add(newCategoryButton);
+
+        newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        newSubCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
+        newSubCategoryButton.setSelected(true);
+        newSubCategoryButton.setText(" New SubCategory");
+        newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newSubCategoryButtonActionPerformed(evt);
+            }
+        });
+        newMenu.add(newSubCategoryButton);
+
         jMenuBar1.add(newMenu);
 
         editMenu.setForeground(new java.awt.Color(31, 108, 103));
@@ -556,6 +754,24 @@ public class Home extends javax.swing.JFrame {
             }
         });
         showMenu.add(showCosts);
+
+        showCategories.setBackground(new java.awt.Color(182, 224, 224));
+        showCategories.setText("Categories");
+        showCategories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showCategoriesActionPerformed(evt);
+            }
+        });
+        showMenu.add(showCategories);
+
+        showSubCategories.setBackground(new java.awt.Color(182, 224, 224));
+        showSubCategories.setText("Sub Categories");
+        showSubCategories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showSubCategoriesActionPerformed(evt);
+            }
+        });
+        showMenu.add(showSubCategories);
 
         jMenuBar1.add(showMenu);
 
@@ -734,6 +950,16 @@ public class Home extends javax.swing.JFrame {
         lista.setModel(model);
     }
     
+    private void updateCombo(JComboBox combo) {
+        combo.removeAllItems();
+        
+        String[] names = Principal.republic.getCategoriesSubs();
+        
+        for (String s : names) {
+            combo.addItem(s);
+        }
+    }
+    
     private void editMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editMenuActionPerformed
@@ -799,6 +1025,91 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"home");
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void newCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCategoryButtonActionPerformed
+        updateCombo(comboSubs);
+        
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newCategory");
+    }//GEN-LAST:event_newCategoryButtonActionPerformed
+
+    private void descEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descEntryActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseExited
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseEntered
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String desc = descEntry.getText();
+        int index = comboSubs.getSelectedIndex();
+        try {
+            Principal.republic.addCategory(desc, index);
+            JOptionPane.showMessageDialog(null, "Categoria inserida com sucesso!");
+            descEntry.setText("");
+            comboSubs.setSelectedIndex(0);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Insira um nome pra categoria!");
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void nameEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameEntryActionPerformed
+
+    private void emailEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_emailEntryActionPerformed
+
+    private void newSubCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSubCategoryButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newSubCategory");
+    }//GEN-LAST:event_newSubCategoryButtonActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String desc = subEntry.getText();
+        try {
+            Principal.republic.addSubCategory(desc);
+            JOptionPane.showMessageDialog(null, "Sub categoria cadastrada com sucesso!");
+            subEntry.setText("");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Insira uma Sub Categoria!");
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subEntryActionPerformed
+
+    private void showCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCategoriesActionPerformed
+        Principal.republic.showCategories();
+    }//GEN-LAST:event_showCategoriesActionPerformed
+
+    private void showSubCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSubCategoriesActionPerformed
+        Principal.republic.showSubCategories();
+    }//GEN-LAST:event_showSubCategoriesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -836,16 +1147,20 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Root;
+    private javax.swing.JComboBox<String> comboSubs;
     private javax.swing.JMenu deleteMenu;
     private javax.swing.JRadioButtonMenuItem deletePerson;
+    private javax.swing.JTextField descEntry;
     private javax.swing.JMenu editMenu;
     private javax.swing.JRadioButtonMenuItem editPerson;
     private javax.swing.JTextField emailEntry;
     private javax.swing.JRadioButtonMenuItem exportTxt;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JPanel formCategory;
     private javax.swing.JPanel formDeletePerson;
     private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
+    private javax.swing.JPanel formSubCategory;
     private javax.swing.JRadioButtonMenuItem homeButton;
     private javax.swing.JPanel homeCard;
     private javax.swing.JTextField incomeEntry;
@@ -853,12 +1168,21 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -874,14 +1198,19 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField nameEntry;
     private javax.swing.JList<String> namesDeleteList;
     private javax.swing.JList<String> namesList;
+    private javax.swing.JRadioButtonMenuItem newCategoryButton;
     private javax.swing.JTextField newEmail;
     private javax.swing.JTextField newIncome;
     private javax.swing.JMenu newMenu;
     private javax.swing.JTextField newName;
     private javax.swing.JRadioButtonMenuItem newPersonButton;
+    private javax.swing.JRadioButtonMenuItem newSubCategoryButton;
     private javax.swing.JRadioButtonMenuItem saveButton;
+    private javax.swing.JRadioButtonMenuItem showCategories;
     private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
+    private javax.swing.JRadioButtonMenuItem showSubCategories;
+    private javax.swing.JTextField subEntry;
     // End of variables declaration//GEN-END:variables
 }

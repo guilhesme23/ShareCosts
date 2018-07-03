@@ -9,7 +9,7 @@ package exceptions;
  *
  * @author vinicius
  */
-public class CategoriaNaoInformadaException {
+public class CategoriaNaoInformadaException extends Exception{
     private final String exceptionMessage;
     
     public CategoriaNaoInformadaException() {
