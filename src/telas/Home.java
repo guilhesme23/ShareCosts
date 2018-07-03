@@ -428,7 +428,7 @@ public class Home extends javax.swing.JFrame {
 
         formCategory.setBackground(new java.awt.Color(226, 242, 243));
 
-        jLabel12.setText("Categoria");
+        jLabel12.setText("SubCategoria");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,7 +438,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel13.setText("Add Category");
+        jLabel13.setText("Add SubCategory");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -461,7 +461,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12)
                     .addComponent(jTextField1))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -633,7 +633,7 @@ public class Home extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Root, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
