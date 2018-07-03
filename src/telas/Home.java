@@ -116,6 +116,8 @@ public class Home extends javax.swing.JFrame {
         showCosts = new javax.swing.JRadioButtonMenuItem();
         showCategories = new javax.swing.JRadioButtonMenuItem();
         showSubCategories = new javax.swing.JRadioButtonMenuItem();
+        showRulesIg = new javax.swing.JMenuItem();
+        showRulesProp = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -155,7 +157,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(364, Short.MAX_VALUE))
         );
         homeCardLayout.setVerticalGroup(
             homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +437,7 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -453,7 +455,7 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addContainerGap())
         );
@@ -669,7 +671,6 @@ public class Home extends javax.swing.JFrame {
 
         newCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         newCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
-        newCategoryButton.setSelected(true);
         newCategoryButton.setText("New Category");
         newCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -680,7 +681,6 @@ public class Home extends javax.swing.JFrame {
 
         newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         newSubCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
-        newSubCategoryButton.setSelected(true);
         newSubCategoryButton.setText(" New SubCategory");
         newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -772,6 +772,29 @@ public class Home extends javax.swing.JFrame {
             }
         });
         showMenu.add(showSubCategories);
+
+        showRulesIg.setBackground(new java.awt.Color(182, 224, 224));
+        showRulesIg.setText("Regras Igualitarias");
+        showRulesIg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRulesIgActionPerformed(evt);
+            }
+        });
+        showRulesIg.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                showRulesIgPropertyChange(evt);
+            }
+        });
+        showMenu.add(showRulesIg);
+
+        showRulesProp.setBackground(new java.awt.Color(182, 224, 224));
+        showRulesProp.setText("Regras Proporcionais");
+        showRulesProp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRulesPropActionPerformed(evt);
+            }
+        });
+        showMenu.add(showRulesProp);
 
         jMenuBar1.add(showMenu);
 
@@ -869,11 +892,6 @@ public class Home extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
-        JOptionPane.showMessageDialog(null, "Loaded file");
-    }//GEN-LAST:event_loadButtonActionPerformed
 
     private void fileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileMenuActionPerformed
         // TODO add your handling code here:
@@ -1110,6 +1128,23 @@ public class Home extends javax.swing.JFrame {
         Principal.republic.showSubCategories();
     }//GEN-LAST:event_showSubCategoriesActionPerformed
 
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
+        JOptionPane.showMessageDialog(null, "Loaded file");
+    }//GEN-LAST:event_loadButtonActionPerformed
+
+    private void showRulesIgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesIgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showRulesIgActionPerformed
+
+    private void showRulesPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesPropActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showRulesPropActionPerformed
+
+    private void showRulesIgPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_showRulesIgPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showRulesIgPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -1210,6 +1245,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
+    private javax.swing.JMenuItem showRulesIg;
+    private javax.swing.JMenuItem showRulesProp;
     private javax.swing.JRadioButtonMenuItem showSubCategories;
     private javax.swing.JTextField subEntry;
     // End of variables declaration//GEN-END:variables
