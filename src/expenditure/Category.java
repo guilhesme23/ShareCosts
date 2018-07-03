@@ -10,16 +10,16 @@ import exceptions.CategoriaNaoInformadaException;
  */
 
 public class Category implements Serializable{
-    private String desc;
-    private LinkedList<Category> sub = new LinkedList<>();
+    String desc;
+    private LinkedList<Category> category = new LinkedList<>();
 
    
     public Category() {
     }
 
-    public Category(String desc, LinkedList<Category> sub) {
+    public Category(String desc, LinkedList<Category> category) {
         this.desc = desc;
-        this.sub = sub;
+        this.category = category;
     }
 
     /**
@@ -28,38 +28,38 @@ public class Category implements Serializable{
      * @param sub
      * @throws exceptions.CategoriaNaoInformadaException
      */
-    public Category(String desc, Category sub) throws CategoriaNaoInformadaException{
-        String descRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
-        String subRegex = "\\D+";
+    public Category(String desc) throws CategoriaNaoInformadaException{
+        String descRegex = "\\D";
+        //String subRegex = "\\D+";
         
-        if(desc.matches(descRegex) && sub.matches(subRegex)){
+        if(desc.matches(descRegex)/* && sub.matches(subRegex)*/){
            this.desc = desc;
-           this.sub = sub;
+           //this.sub = sub;
         } else{
             throw new CategoriaNaoInformadaException();
         }
     }
-    
     public String getDesc() {
             return desc;
     }
 
-    public LinkedList<Category> getSub(){
-        return sub;
+   public LinkedList<Category> getCategory(){
+        return category;
     }
-     
+   
     public void setDesc(String desc) {
         this.desc = desc;
     }
     
-    public void addSub(Category categ){
+   /* public void addSub(Category categ){
         sub.add(categ);
     }
-    
+    */
+    @Override
     public String toString(){
         String result = "Desc: " +this.desc
                         + "\n"
-                        + "Subcategory: " + this.sub +"\n";
+                       /* + "Subcategory: " + this.sub +"\n"*/;
         
         return result;
     }
@@ -91,4 +91,5 @@ public class Category implements Serializable{
     }
 
     */
+    
 }

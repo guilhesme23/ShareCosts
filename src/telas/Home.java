@@ -8,6 +8,7 @@ package telas;
 import app.Principal;
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
+import exceptions.CategoriaNaoInformadaException;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
@@ -79,6 +80,10 @@ public class Home extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         namesDeleteList = new javax.swing.JList<>();
+        formCategory = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
@@ -87,6 +92,7 @@ public class Home extends javax.swing.JFrame {
         newMenu = new javax.swing.JMenu();
         homeButton = new javax.swing.JRadioButtonMenuItem();
         newPersonButton = new javax.swing.JRadioButtonMenuItem();
+        newCategoryButton = new javax.swing.JRadioButtonMenuItem();
         editMenu = new javax.swing.JMenu();
         editPerson = new javax.swing.JRadioButtonMenuItem();
         deleteMenu = new javax.swing.JMenu();
@@ -127,12 +133,12 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(328, Short.MAX_VALUE))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
         homeCardLayout.setVerticalGroup(
             homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, homeCardLayout.createSequentialGroup()
-                .addContainerGap(236, Short.MAX_VALUE)
+                .addContainerGap(338, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addContainerGap())
         );
@@ -190,7 +196,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(incomeEntry))
                     .addComponent(jButton1))
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(278, Short.MAX_VALUE))
         );
         formPersonLayout.setVerticalGroup(
             formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -209,7 +215,7 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(incomeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addContainerGap())
         );
@@ -302,7 +308,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formEditPersonLayout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
@@ -331,7 +337,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addComponent(jLabel6)
                 .addContainerGap())
         );
@@ -395,7 +401,7 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,12 +419,63 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
                     .addComponent(jButton7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addContainerGap())
         );
 
         Root.add(formDeletePerson, "deletePerson");
+
+        formCategory.setBackground(new java.awt.Color(226, 242, 243));
+
+        jLabel12.setText("Categoria");
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel13.setText("Add Category");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel13MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel13MouseEntered(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formCategoryLayout = new javax.swing.GroupLayout(formCategory);
+        formCategory.setLayout(formCategoryLayout);
+        formCategoryLayout.setHorizontalGroup(
+            formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTextField1))
+                .addContainerGap(252, Short.MAX_VALUE))
+        );
+        formCategoryLayout.setVerticalGroup(
+            formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 274, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addContainerGap())
+        );
+
+        Root.add(formCategory, "card6");
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
@@ -490,6 +547,17 @@ public class Home extends javax.swing.JFrame {
             }
         });
         newMenu.add(newPersonButton);
+
+        newCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        newCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
+        newCategoryButton.setSelected(true);
+        newCategoryButton.setText("New Category");
+        newCategoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCategoryButtonActionPerformed(evt);
+            }
+        });
+        newMenu.add(newCategoryButton);
 
         jMenuBar1.add(newMenu);
 
@@ -799,6 +867,27 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"home");
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void newCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCategoryButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newCategory");
+    }//GEN-LAST:event_newCategoryButtonActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseExited
+
+    private void jLabel13MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel13MouseEntered
+
     /**
      * @param args the command line arguments
      */
@@ -843,6 +932,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField emailEntry;
     private javax.swing.JRadioButtonMenuItem exportTxt;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JPanel formCategory;
     private javax.swing.JPanel formDeletePerson;
     private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
@@ -858,6 +948,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -870,10 +962,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JRadioButtonMenuItem loadButton;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JList<String> namesDeleteList;
     private javax.swing.JList<String> namesList;
+    private javax.swing.JRadioButtonMenuItem newCategoryButton;
     private javax.swing.JTextField newEmail;
     private javax.swing.JTextField newIncome;
     private javax.swing.JMenu newMenu;
