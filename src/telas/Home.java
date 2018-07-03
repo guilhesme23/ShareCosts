@@ -135,7 +135,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel1.setText("Home");
+        jLabel1.setText("Principal");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -155,7 +155,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(homeCardLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap(317, Short.MAX_VALUE))
+                .addContainerGap(323, Short.MAX_VALUE))
         );
         homeCardLayout.setVerticalGroup(
             homeCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,7 +172,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel2.setText("Add Person");
+        jLabel2.setText("Adicionar pessoa");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -186,7 +186,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel3.setText("Name:");
+        jLabel3.setText("Nome:");
 
         nameEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,10 +204,10 @@ public class Home extends javax.swing.JFrame {
         jLabel4.setText("Email:");
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel5.setText("Income:");
+        jLabel5.setText("Renda:");
 
         jButton1.setBackground(new java.awt.Color(134, 205, 205));
-        jButton1.setText("Add");
+        jButton1.setText("Adicionar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -230,7 +230,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(incomeEntry))
                     .addComponent(jButton1))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         formPersonLayout.setVerticalGroup(
             formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -275,16 +275,16 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel7.setText("Name:");
+        jLabel7.setText("Nome:");
 
         jLabel8.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
         jLabel8.setText("Email:");
 
         jLabel9.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel9.setText("Income:");
+        jLabel9.setText("Renda:");
 
         jButton2.setBackground(new java.awt.Color(134, 205, 205));
-        jButton2.setText("Apply");
+        jButton2.setText("Aplicar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -295,7 +295,7 @@ public class Home extends javax.swing.JFrame {
         jLabel10.setText("Select Person:");
 
         jButton3.setBackground(new java.awt.Color(134, 205, 205));
-        jButton3.setText("Select");
+        jButton3.setText("Selecionar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -342,7 +342,7 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(formEditPersonLayout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                         .addComponent(jButton4)))
                 .addContainerGap())
         );
@@ -383,7 +383,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel11.setText("Delete Person");
+        jLabel11.setText("Deletar pessoa");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -397,10 +397,10 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel15.setText("Select Person:");
+        jLabel15.setText("Selecionar pessoa:");
 
         jButton6.setBackground(new java.awt.Color(134, 205, 205));
-        jButton6.setText("Select");
+        jButton6.setText("Selecionar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -408,7 +408,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton7.setBackground(new java.awt.Color(134, 205, 205));
-        jButton7.setText("Cancel");
+        jButton7.setText("Cancelar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -435,7 +435,7 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -472,7 +472,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel13.setText("Add Category");
+        jLabel13.setText("Adicionar categoria");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -485,10 +485,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel17.setText("Escolha a categoria desta sub-categoria");
+        jLabel17.setText("Subcategoria");
 
         jButton5.setBackground(new java.awt.Color(134, 205, 205));
-        jButton5.setText("Add");
+        jButton5.setText("Adicionar");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -511,7 +511,7 @@ public class Home extends javax.swing.JFrame {
                     .addComponent(jButton5)
                     .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap(180, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -535,7 +535,7 @@ public class Home extends javax.swing.JFrame {
 
         formSubCategory.setBackground(new java.awt.Color(226, 242, 243));
 
-        jLabel14.setText("Sub-Categoria");
+        jLabel14.setText("Subcategoria");
 
         subEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -545,7 +545,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel16.setText("Add Sub-Category");
+        jLabel16.setText("Adicionar subcategoria");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
@@ -559,7 +559,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton8.setBackground(new java.awt.Color(134, 205, 205));
-        jButton8.setText("Add");
+        jButton8.setText("Adicionar");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -578,7 +578,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel14)
                         .addComponent(subEntry))
                     .addComponent(jButton8))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(132, Short.MAX_VALUE))
         );
         formSubCategoryLayout.setVerticalGroup(
             formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -600,7 +600,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.setBorder(null);
 
         fileMenu.setForeground(new java.awt.Color(31, 108, 103));
-        fileMenu.setText("File");
+        fileMenu.setText("Arquivo");
         fileMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fileMenuActionPerformed(evt);
@@ -609,7 +609,7 @@ public class Home extends javax.swing.JFrame {
 
         loadButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         loadButton.setBackground(new java.awt.Color(182, 224, 224));
-        loadButton.setText("Load");
+        loadButton.setText("Carregar");
         loadButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loadButtonActionPerformed(evt);
@@ -619,7 +619,7 @@ public class Home extends javax.swing.JFrame {
 
         saveButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         saveButton.setBackground(new java.awt.Color(182, 224, 224));
-        saveButton.setText("Save");
+        saveButton.setText("Salvar");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveButtonActionPerformed(evt);
@@ -629,7 +629,7 @@ public class Home extends javax.swing.JFrame {
 
         exportTxt.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
         exportTxt.setBackground(new java.awt.Color(182, 224, 224));
-        exportTxt.setText("Export txt");
+        exportTxt.setText("Exportar txt");
         exportTxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportTxtActionPerformed(evt);
@@ -640,7 +640,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(fileMenu);
 
         newMenu.setForeground(new java.awt.Color(31, 108, 103));
-        newMenu.setText("New");
+        newMenu.setText("Novo");
         newMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newMenuActionPerformed(evt);
@@ -649,7 +649,7 @@ public class Home extends javax.swing.JFrame {
 
         homeButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         homeButton.setBackground(new java.awt.Color(182, 224, 224));
-        homeButton.setText("Home");
+        homeButton.setText("Principal");
         homeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeButtonActionPerformed(evt);
@@ -659,7 +659,7 @@ public class Home extends javax.swing.JFrame {
 
         newPersonButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         newPersonButton.setBackground(new java.awt.Color(182, 224, 224));
-        newPersonButton.setText("New Person");
+        newPersonButton.setText("Nova pessoa");
         newPersonButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newPersonButtonActionPerformed(evt);
@@ -670,7 +670,7 @@ public class Home extends javax.swing.JFrame {
         newCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         newCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
         newCategoryButton.setSelected(true);
-        newCategoryButton.setText("New Category");
+        newCategoryButton.setText("Nova categoria");
         newCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newCategoryButtonActionPerformed(evt);
@@ -681,7 +681,7 @@ public class Home extends javax.swing.JFrame {
         newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         newSubCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
         newSubCategoryButton.setSelected(true);
-        newSubCategoryButton.setText(" New SubCategory");
+        newSubCategoryButton.setText("Nova subcategoria");
         newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newSubCategoryButtonActionPerformed(evt);
@@ -692,7 +692,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(newMenu);
 
         editMenu.setForeground(new java.awt.Color(31, 108, 103));
-        editMenu.setText("Edit");
+        editMenu.setText("Editar");
         editMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editMenuActionPerformed(evt);
@@ -700,7 +700,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         editPerson.setBackground(new java.awt.Color(182, 224, 224));
-        editPerson.setText("Edit Person");
+        editPerson.setText("Editar pessoa");
         editPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPersonActionPerformed(evt);
@@ -711,7 +711,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(editMenu);
 
         deleteMenu.setForeground(new java.awt.Color(31, 108, 103));
-        deleteMenu.setText("Delete");
+        deleteMenu.setText("Deletar");
         deleteMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteMenuActionPerformed(evt);
@@ -719,7 +719,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         deletePerson.setBackground(new java.awt.Color(182, 224, 224));
-        deletePerson.setText("Delete Person");
+        deletePerson.setText("Deletar pessoa");
         deletePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletePersonActionPerformed(evt);
@@ -730,7 +730,7 @@ public class Home extends javax.swing.JFrame {
         jMenuBar1.add(deleteMenu);
 
         showMenu.setForeground(new java.awt.Color(31, 108, 103));
-        showMenu.setText("Show");
+        showMenu.setText("Exibir");
         showMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showMenuActionPerformed(evt);
@@ -738,7 +738,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         showDwellers.setBackground(new java.awt.Color(182, 224, 224));
-        showDwellers.setText("Dwellers");
+        showDwellers.setText("Residentes");
         showDwellers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showDwellersActionPerformed(evt);
@@ -747,7 +747,7 @@ public class Home extends javax.swing.JFrame {
         showMenu.add(showDwellers);
 
         showCosts.setBackground(new java.awt.Color(182, 224, 224));
-        showCosts.setText("Costs");
+        showCosts.setText("Custos");
         showCosts.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showCostsActionPerformed(evt);
@@ -756,7 +756,7 @@ public class Home extends javax.swing.JFrame {
         showMenu.add(showCosts);
 
         showCategories.setBackground(new java.awt.Color(182, 224, 224));
-        showCategories.setText("Categories");
+        showCategories.setText("Categorias");
         showCategories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showCategoriesActionPerformed(evt);
@@ -765,7 +765,7 @@ public class Home extends javax.swing.JFrame {
         showMenu.add(showCategories);
 
         showSubCategories.setBackground(new java.awt.Color(182, 224, 224));
-        showSubCategories.setText("Sub Categories");
+        showSubCategories.setText("Subcategorias");
         showSubCategories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showSubCategoriesActionPerformed(evt);
