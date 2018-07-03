@@ -101,4 +101,8 @@ public class Republic implements Serializable {
         
         return result;
     }
+
+    public void addCosts(String desc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

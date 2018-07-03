@@ -9,8 +9,6 @@ import app.Principal;
 import dweller.Person;
 import exceptions.DadosPessoaisIncompletosException;
 import exceptions.CategoriaNaoInformadaException;
-import exceptions.SubCategoriaNaoInformadaException;
-import expenditure.SubCategory;
 import files.FileHandler;
 import household.Republic;
 import java.awt.CardLayout;
@@ -18,6 +16,7 @@ import java.awt.Color;
 import java.awt.HeadlessException;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.Locale.Category;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
@@ -49,6 +48,8 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
         Root = new javax.swing.JPanel();
         homeCard = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -84,9 +85,16 @@ public class Home extends javax.swing.JFrame {
         namesDeleteList = new javax.swing.JList<>();
         formCategory = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        subEntry = new javax.swing.JTextField();
+        descEntry = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        formSubCategory = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        subEntry = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JRadioButtonMenuItem();
@@ -104,6 +112,12 @@ public class Home extends javax.swing.JFrame {
         showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JRadioButtonMenuItem();
         showCosts = new javax.swing.JRadioButtonMenuItem();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -444,17 +458,17 @@ public class Home extends javax.swing.JFrame {
 
         formCategory.setBackground(new java.awt.Color(226, 242, 243));
 
-        jLabel12.setText("SubCategoria");
+        jLabel12.setText("Categoria");
 
-        subEntry.addActionListener(new java.awt.event.ActionListener() {
+        descEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                subEntryActionPerformed(evt);
+                descEntryActionPerformed(evt);
             }
         });
 
         jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel13.setText("Add SubCategory");
+        jLabel13.setText("Add Category");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -485,9 +499,9 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel12)
-                        .addComponent(subEntry))
+                        .addComponent(descEntry))
                     .addComponent(jButton5))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(226, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,7 +509,7 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(descEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
                 .addComponent(jButton5)
                 .addGap(40, 40, 40)
@@ -504,6 +518,79 @@ public class Home extends javax.swing.JFrame {
         );
 
         Root.add(formCategory, "newCategory");
+
+        formSubCategory.setBackground(new java.awt.Color(226, 242, 243));
+
+        jLabel14.setText("Sub-Categoria");
+
+        subEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subEntryActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel16.setText("Add Sub-Category");
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel16MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel16MouseEntered(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel17.setText("Escolha a categoria desta sub-categoria");
+
+        jButton8.setBackground(new java.awt.Color(134, 205, 205));
+        jButton8.setText("Add");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout formSubCategoryLayout = new javax.swing.GroupLayout(formSubCategory);
+        formSubCategory.setLayout(formSubCategoryLayout);
+        formSubCategoryLayout.setHorizontalGroup(
+            formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formSubCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel14)
+                        .addComponent(subEntry))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(jButton8))
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+        formSubCategoryLayout.setVerticalGroup(
+            formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formSubCategoryLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(subEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
+                .addComponent(jButton8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel16)
+                .addContainerGap())
+        );
+
+        Root.add(formSubCategory, "newSubCategory");
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
@@ -588,6 +675,7 @@ public class Home extends javax.swing.JFrame {
         newMenu.add(newCategoryButton);
 
         newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        newSubCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
         newSubCategoryButton.setSelected(true);
         newSubCategoryButton.setText(" New SubCategory");
         newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
@@ -910,9 +998,9 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"newCategory");
     }//GEN-LAST:event_newCategoryButtonActionPerformed
 
-    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
+    private void descEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_subEntryActionPerformed
+    }//GEN-LAST:event_descEntryActionPerformed
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         // TODO add your handling code here:
@@ -927,17 +1015,18 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseEntered
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String sub = subEntry.getText();
+        String desc = descEntry.getText();
         
         try {
-            Principal.republic.addPerson(sub);
+            Principal.republic.addCosts(desc);
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
-        } catch(SubCategoriaNaoInformadaException ex) {
+        } catch(CategoriaNaoInformadaException ex) {
             JOptionPane.showMessageDialog(null, ex.getExceptionMessage());
         }
         
-        subEntry.setText("");
-                
+        descEntry.setText("");
+          
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void nameEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameEntryActionPerformed
@@ -952,6 +1041,26 @@ public class Home extends javax.swing.JFrame {
         CardLayout card = (CardLayout) Root.getLayout();
         card.show(Root,"newSubCategory");
     }//GEN-LAST:event_newSubCategoryButtonActionPerformed
+
+    private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_subEntryActionPerformed
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseExited
+
+    private void jLabel16MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseEntered
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -992,6 +1101,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel Root;
     private javax.swing.JMenu deleteMenu;
     private javax.swing.JRadioButtonMenuItem deletePerson;
+    private javax.swing.JTextField descEntry;
     private javax.swing.JMenu editMenu;
     private javax.swing.JRadioButtonMenuItem editPerson;
     private javax.swing.JTextField emailEntry;
@@ -1001,6 +1111,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel formDeletePerson;
     private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
+    private javax.swing.JPanel formSubCategory;
     private javax.swing.JRadioButtonMenuItem homeButton;
     private javax.swing.JPanel homeCard;
     private javax.swing.JTextField incomeEntry;
@@ -1011,12 +1122,19 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

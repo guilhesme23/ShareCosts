@@ -5,7 +5,8 @@
  */
 package expenditure;
 
-import exceptions.SubCategoriaNaoInformadaException;
+import exceptions.CategoriaNaoInformadaException;
+import expenditure.Category;
 import java.util.LinkedList;
 
 /**
@@ -14,16 +15,16 @@ import java.util.LinkedList;
  */
 public class Cost {
     private String desc;
-    private Category category;
+    static LinkedList <Category> category= new LinkedList<>();
     private float value;
     
 
     public Cost() {
     }
 
-    public Cost(String desc, Category category, float value) {
+    public Cost(String desc, LinkedList<Category> category, float value) {
         this.desc = desc;
-        this.category = category;
+        Cost.category = category;
         this.value = value;
     }
 
@@ -31,7 +32,7 @@ public class Cost {
         return desc;
     }
 
-    public Category getCategory() {
+    public LinkedList<Category> getCategory() {
         return category;
     }
 
@@ -43,18 +44,38 @@ public class Cost {
         this.desc = desc;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(LinkedList<Category> category) {
+        Cost.category = category;
     }
 
     public void setValue(float value) {
         this.value = value;
     }
    
-    public void addSubCategory() throws SubCategoriaNaoInformadaException {
-    SubCategory sub = new SubCategory(sub);
-    this.subCategory.add(sub);
-        
+    /*public void addCategory() throws CategoriaNaoInformadaException {
+        Category category = new Category(desc);
+        this.Category.add(category);
+    }*/
+    
+    protected static Category findCategory(String desc){   
+        Category answer = null;
+        for (Category temporary : category) {
+            if(temporary.getDesc().equals(desc)){
+                answer = temporary;
+                return answer;
+            }
+            if(!(temporary.getSubCategory().isEmpty())){ 
+              for(Category sub: temporary.getSubCategory()){
+                        if(sub.getDesc().equals(desc)){
+                           answer = sub;
+                           return answer;
+                       }               
+                }
+            } 
+            
+        }
+      
+        return answer;
     }
     
 }
