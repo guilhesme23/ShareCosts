@@ -1,7 +1,10 @@
 package household;
 
 import dweller.Person;
+import exceptions.CategoriaNaoInformadaException;
 import exceptions.DadosPessoaisIncompletosException;
+import exceptions.DescricaoNaoInformadaException;
+import exceptions.ValorNaoInformadoException;
 import expenditure.Category;
 import expenditure.Cost;
 
@@ -38,6 +41,7 @@ public class Republic implements Serializable {
         padrao.setSub(null);
         
         this.sub.add(padrao);
+        this.category.add(padrao);
         
     }
 
@@ -66,6 +70,19 @@ public class Republic implements Serializable {
         return names.toArray(new String[0]);
     }
     
+    public String[] getCategories() {
+        LinkedList<String> names = new LinkedList<>();
+        for(Category s: category) {
+            names.add(s.getDesc());
+        }
+        return names.toArray(new String[0]);
+    }
+    
+    
+    public Category getCategory(int index){
+        return this.category.get(index);
+    }
+    
     public LinkedList<Cost> getCosts() {
         return costs;
     }
@@ -81,6 +98,12 @@ public class Republic implements Serializable {
     public void addPerson(String name, String email, String income) throws DadosPessoaisIncompletosException {
         Person person = new Person(name,email,income);
         this.residents.add(person);
+        
+    }
+    
+    public void addCost(String desc, Category category, String value) throws DescricaoNaoInformadaException, CategoriaNaoInformadaException, ValorNaoInformadoException{
+    Cost cost = new Cost(desc,category,value);
+    this.costs.add(cost);
         
     }
     
@@ -113,6 +136,21 @@ public class Republic implements Serializable {
             
         } else {
             JOptionPane.showMessageDialog(null, "Nenhum inquilino cadastrado!");
+        }
+    }
+    
+    public void showCosts() {
+        if (!costs.isEmpty()) {
+            Iterator iter = this.costs.iterator();
+        
+            while(iter.hasNext()) {
+                System.out.println(iter.next().toString());
+            }
+            
+            JOptionPane.showMessageDialog(null, costs);
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Nenhuma despesa cadastrada!");
         }
     }
     

@@ -9,7 +9,7 @@ package exceptions;
  *
  * @author vinicius
  */
-public class DescricaoNaoInformadaException {
+public class DescricaoNaoInformadaException extends Exception{
     private final String exceptionMessage;
     
     public DescricaoNaoInformadaException() {

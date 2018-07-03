@@ -9,7 +9,7 @@ package exceptions;
  *
  * @author vinicius
  */
-public class ValorNaoInformadoException {
+public class ValorNaoInformadoException extends Exception{
     private final String exceptionMessage;
     
     public ValorNaoInformadoException() {
