@@ -154,7 +154,7 @@
                   <Color blue="e0" green="e0" red="b6" type="rgb"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="New Cost"/>
+                <Property name="text" type="java.lang.String" value="Nova despesa"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newCostButtonActionPerformed"/>
@@ -237,7 +237,7 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e0" green="e0" red="b6" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Custos"/>
+                <Property name="text" type="java.lang.String" value="Despesas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showCostsActionPerformed"/>
