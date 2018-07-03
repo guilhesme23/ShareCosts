@@ -86,8 +86,9 @@ public class Cost {
         
         String result = "Descrição: " + this.desc 
                         + "\n" 
-                        + "Categoria: " + this.category 
-                        + "Value: " + this.value + "\n";
+                        + this.category 
+                        + "Value: " + this.value
+                        + "\n";
     
         return result;
     }

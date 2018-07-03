@@ -45,10 +45,10 @@ public class Category implements Serializable{
     public String toString() {
         String result;
         if (sub != null) {
-            result = "Descrição: " + desc + "\n";
+            result = "Categoria: " + desc + "\n";
             result += "Sub Categoria: " + sub.getDesc() + "\n";
         } else {
-            result = "Descrição: " + desc + "\n";
+            result = "Categoria: " + desc + "\n";
         }
         return result;
     }
