@@ -1399,20 +1399,20 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_exportTxtActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "Isso irá sobrescrever o arquivo atual, tem certeza?");
         
         if (showConfirmDialog == JOptionPane.YES_OPTION) {
             FileHandler.saveObject(Principal.republic, "alunos.bin");
-            JOptionPane.showMessageDialog(null, "Saved succefully!");
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
         } else {
-            JOptionPane.showMessageDialog(null, "Aborted!");
+            JOptionPane.showMessageDialog(null, "Operação abortada!");
         }
         
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
-        JOptionPane.showMessageDialog(null, "Loaded file");
+        JOptionPane.showMessageDialog(null, "Arquivo carregado com sucesso!");
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

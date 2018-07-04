@@ -89,7 +89,7 @@ public class Cost implements Serializable {
         String result = "Descrição: " + this.desc 
                         + "\n" 
                         + this.category 
-                        + "Value: " + this.value
+                        + "Valor: " + this.value
                         + "\n";
     
         return result;

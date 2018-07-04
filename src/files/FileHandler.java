@@ -48,7 +48,7 @@ public class FileHandler implements Serializable {
     public static Object loadObject(String path) {
         File file = new File(path);
         if (!file.exists()) {
-            JOptionPane.showMessageDialog(null, "File does't exist");
+            JOptionPane.showMessageDialog(null, "Arquivo não existe!");
             return null;
         }
         ObjectInputStream input;
