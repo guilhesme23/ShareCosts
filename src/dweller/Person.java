@@ -5,11 +5,15 @@
  */
 package dweller;
 
+import exceptions.DadosPessoaisIncompletosException;
+import java.io.Serializable;
+
+
 /**
  *
  * @author guilherme
  */
-public class Person {
+public class Person implements Serializable {
     private String name;
     private String email;
     private float income;
@@ -22,6 +26,22 @@ public class Person {
         this.name = name;
         this.email = email;
         this.income = income;
+    }
+    
+    public Person(String name, String email, String income) throws DadosPessoaisIncompletosException {
+        String emailRegex = "[\\w|\\d|_]+\\@\\w+\\.\\w+[\\.|\\w]*";
+        String nameRegex = "\\D+";
+        String incomeRegex = "\\d+\\.?\\d{0,}";
+        
+        if (name.matches(nameRegex) && email.matches(emailRegex) && income.matches(incomeRegex)) {
+            float value = Float.parseFloat(income);
+            this.name = name;
+            this.email = email;
+            this.income = value;
+        } else {
+            throw new DadosPessoaisIncompletosException();
+        }
+        
     }
     
     public String getName() {
@@ -51,7 +71,11 @@ public class Person {
     @Override
     public String toString() {
         
-        String result = this.name + "\n" + this.email + "\n" + this.income + "\n";
+        String result = "Name: " + this.name 
+                        + "\n" 
+                        + "Email: " + this.email 
+                        + "\n" 
+                        + "Income: " + this.income + "\n";
     
         return result;
     }
