@@ -1412,7 +1412,9 @@ public class Home extends javax.swing.JFrame {
 
     private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
         Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
-        JOptionPane.showMessageDialog(null, "Arquivo carregado com sucesso!");
+        if (Principal.republic != null) {
+            JOptionPane.showMessageDialog(null, "Arquivo carregado com sucesso!");
+        }
     }//GEN-LAST:event_loadButtonActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
