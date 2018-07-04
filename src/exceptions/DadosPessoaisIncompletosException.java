@@ -16,7 +16,8 @@ public class DadosPessoaisIncompletosException extends Exception {
         exceptionMessage = "Os dados de usuário estão incorretos.";
     }
 
-    public String getExceptionMessage(){
+    @Override
+    public String getMessage(){
         return exceptionMessage;
     }    
     

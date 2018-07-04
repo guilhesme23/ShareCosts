@@ -1066,7 +1066,7 @@ public class Home extends javax.swing.JFrame {
             Principal.republic.addPerson(name, email, income);
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
         } catch(DadosPessoaisIncompletosException ex) {
-            JOptionPane.showMessageDialog(null, ex.getExceptionMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         
         nameEntry.setText("");
@@ -1302,7 +1302,7 @@ public class Home extends javax.swing.JFrame {
             Principal.republic.addCost(desc, category, value);
             JOptionPane.showMessageDialog(null, "Cadastro realizado!");
         } catch (DescricaoNaoInformadaException | CategoriaNaoInformadaException | ValorNaoInformadoException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
         
         costDesc.setText("");

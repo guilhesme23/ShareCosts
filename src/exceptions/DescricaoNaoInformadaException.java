@@ -16,7 +16,8 @@ public class DescricaoNaoInformadaException extends Exception{
         exceptionMessage = "A descrição da despesa não foi informada.";
     }
 
-    public String getExceptionMessage(){
+    @Override
+    public String getMessage(){
         return exceptionMessage;
     }      
 }

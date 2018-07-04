@@ -7,12 +7,13 @@ package expenditure;
 import exceptions.CategoriaNaoInformadaException;
 import exceptions.DescricaoNaoInformadaException;
 import exceptions.ValorNaoInformadoException;
+import java.io.Serializable;
 
 /**
  *
  * @author guilherme
  */
-public class Cost {
+public class Cost implements Serializable {
     private String desc;
     private Category category;
     private float value;
@@ -30,7 +31,7 @@ public class Cost {
         String descRegex = "\\D+";
         String valueRegex = "\\d+\\.?\\d{0,}";
         
-        float v = Float.parseFloat(value);
+        
         
         if(desc.matches(descRegex)){
             this.desc = desc;
@@ -40,6 +41,7 @@ public class Cost {
         }
         
         if(value.matches(valueRegex)){
+            float v = Float.parseFloat(value);
             this.value = v;
         }
         else{
