@@ -16,7 +16,8 @@ public class ValorNaoInformadoException extends Exception{
         exceptionMessage = "O valor da despesa não foi informado.";
     }
 
-    public String getExceptionMessage(){
+    @Override
+    public String getMessage(){
         return exceptionMessage;
     }      
 }

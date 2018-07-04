@@ -16,7 +16,8 @@ public class CategoriaNaoInformadaException extends Exception{
         exceptionMessage = "A categoria da despesa não foi informada";
     }
 
-    public String getExceptionMessage(){
+    @Override
+    public String getMessage(){
         return exceptionMessage;
     }  
     

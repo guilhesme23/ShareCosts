@@ -98,6 +98,11 @@ public class Republic implements Serializable {
     
     public void addPerson(String name, String email, String income) throws DadosPessoaisIncompletosException {
         Person person = new Person(name,email,income);
+        for (Person p : residents) {
+            if (p.getEmail().equals(person.getEmail())) {
+                throw new DadosPessoaisIncompletosException();
+            }
+        }
         this.residents.add(person);
         
     }
@@ -187,12 +192,19 @@ public class Republic implements Serializable {
     @Override
     public String toString() {
         
-        String result = "Alunos:\n";
+        String result = "\nAlunos:\n";
         String separator = "#######################################\n";
         
         for (Person p: residents) {
             result += separator;
             result += p.toString();
+        }
+        
+        result += separator + "\nDespesas:\n";
+        
+        for (Cost c: costs) {
+            result += separator;
+            result += c.toString();
         }
         
         return result;
