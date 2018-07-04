@@ -275,7 +275,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel6.setText("Edit Person");
+        jLabel6.setText("Editar Pessoa");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel6MouseClicked(evt);
@@ -306,7 +306,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel10.setText("Select Person:");
+        jLabel10.setText("Selecione uma Pessoa:");
 
         jButton3.setBackground(new java.awt.Color(134, 205, 205));
         jButton3.setText("Selecionar");
@@ -317,7 +317,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jButton4.setBackground(new java.awt.Color(134, 205, 205));
-        jButton4.setText("Cancel");
+        jButton4.setText("Cancelar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -352,12 +352,12 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(formEditPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(formEditPersonLayout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(formEditPersonLayout.createSequentialGroup()
                         .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                        .addComponent(jButton4)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                        .addComponent(jButton4))
+                    .addGroup(formEditPersonLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         formEditPersonLayout.setVerticalGroup(
@@ -397,7 +397,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel11.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel11.setText("Deletar pessoa");
+        jLabel11.setText("Deletar Pessoa");
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -411,7 +411,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         jLabel15.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
-        jLabel15.setText("Selecionar pessoa:");
+        jLabel15.setText("Selecionar uma Pessoa:");
 
         jButton6.setBackground(new java.awt.Color(134, 205, 205));
         jButton6.setText("Selecionar");
@@ -449,10 +449,10 @@ public class Home extends javax.swing.JFrame {
                         .addGroup(formDeletePersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jButton6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                         .addComponent(jButton7))
                     .addGroup(formDeletePersonLayout.createSequentialGroup()
-                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -476,7 +476,7 @@ public class Home extends javax.swing.JFrame {
 
         formCategory.setBackground(new java.awt.Color(226, 242, 243));
 
-        jLabel12.setText("Categoria");
+        jLabel12.setText("Categoria:");
 
         descEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -486,7 +486,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel13.setText("Adicionar categoria");
+        jLabel13.setText("Adicionar Categoria");
         jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel13MouseClicked(evt);
@@ -499,7 +499,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel17.setText("Subcategoria");
+        jLabel17.setText("Subcategoria:");
 
         jButton5.setBackground(new java.awt.Color(134, 205, 205));
         jButton5.setText("Adicionar");
@@ -525,12 +525,12 @@ public class Home extends javax.swing.JFrame {
                 .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel12)
-                        .addComponent(descEntry))
+                        .addComponent(descEntry)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton5)
                     .addComponent(comboSubs, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
-                .addContainerGap(180, Short.MAX_VALUE))
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         formCategoryLayout.setVerticalGroup(
             formCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -554,7 +554,7 @@ public class Home extends javax.swing.JFrame {
 
         formSubCategory.setBackground(new java.awt.Color(226, 242, 243));
 
-        jLabel14.setText("Subcategoria");
+        jLabel14.setText("Subcategoria:");
 
         subEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -564,7 +564,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel16.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel16.setText("Adicionar subcategoria");
+        jLabel16.setText("Adicionar Subcategoria");
         jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel16MouseClicked(evt);
@@ -597,7 +597,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel14)
                         .addComponent(subEntry))
                     .addComponent(jButton8))
-                .addContainerGap(132, Short.MAX_VALUE))
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         formSubCategoryLayout.setVerticalGroup(
             formSubCategoryLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -620,7 +620,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel18.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel18.setText("Add Person");
+        jLabel18.setText("Adicionar Despesas");
         jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel18MouseClicked(evt);
@@ -649,7 +649,7 @@ public class Home extends javax.swing.JFrame {
         jLabel21.setText("Valor:");
 
         jButton9.setBackground(new java.awt.Color(134, 205, 205));
-        jButton9.setText("Add");
+        jButton9.setText("Adicionar");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -673,13 +673,13 @@ public class Home extends javax.swing.JFrame {
                     .addGroup(formCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(costDesc)
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(valueEntry)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(categoryEntry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(categoryEntry, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButton9))
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
         formCostLayout.setVerticalGroup(
             formCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -892,6 +892,7 @@ public class Home extends javax.swing.JFrame {
         });
         showMenu.add(showSubCategories);
 
+        showRulesIg.setBackground(new java.awt.Color(182, 224, 224));
         showRulesIg.setText("Regras Igualitárias");
         showRulesIg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -900,6 +901,7 @@ public class Home extends javax.swing.JFrame {
         });
         showMenu.add(showRulesIg);
 
+        showRulesProp.setBackground(new java.awt.Color(182, 224, 224));
         showRulesProp.setText("Regras Proporcionais");
         showRulesProp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1241,7 +1243,7 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_showCategoriesActionPerformed
 
     private void showSubCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSubCategoriesActionPerformed
-        Principal.republic.showSubCategories();
+        Principal.republic.showSubCategories();        
     }//GEN-LAST:event_showSubCategoriesActionPerformed
 
     private void newCostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCostButtonActionPerformed
