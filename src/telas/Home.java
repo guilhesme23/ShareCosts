@@ -1320,8 +1320,8 @@ public class Home extends javax.swing.JFrame {
 
     private void showRulesIgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesIgActionPerformed
         // TODO add your handling code here:
-//        Principal.republic.showCalculoTotal();
-        JOptionPane.showMessageDialog(null, "Valor a pagar para cada Membro: " + Principal.republic.calcularTotal());
+        Principal.republic.calcularTotal();
+        
     }//GEN-LAST:event_showRulesIgActionPerformed
 
     private void showRulesPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesPropActionPerformed

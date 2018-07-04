@@ -198,16 +198,20 @@ public class Republic implements Serializable {
         return result;
     }
     
-    public float calcularTotal (){
+    public void calcularTotal (){
         float totalDespesas = 0.0f;
         for (Cost cost : this.costs){
             totalDespesas += cost.getValue();
         }
-        parcelas = totalDespesas/residents.size();
+        this.parcelas = totalDespesas/this.residents.size();
         
-        return parcelas;
+        if (!costs.isEmpty() && !residents.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Valor a pagar para cada Membro: " + this.parcelas);
+   
+        } else{
+            JOptionPane.showMessageDialog (null, "Nada Cadastrado!");
+        }
     }
-    
     public void calculoTotalProporcional (){
         float totalDespesas = 0.0f;
         float totalRendimento = 0.0f;
@@ -228,22 +232,12 @@ public class Republic implements Serializable {
             guardaProp += String.format(person.getName()+" -> R$ %.2f (%.2f%%)\n",valorParcela,valorProp*100);
         }
         
-        if (guardaProp == "\n"){
-            JOptionPane.showMessageDialog(null, "Nada Cadastrado!");
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Gasto Proporcional: " + guardaProp);
-    
+        if (!costs.isEmpty() && !residents.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Valor a pagar para cada Membro: " + guardaProp);
+   
+        } else{
+            JOptionPane.showMessageDialog (null, "Nada Cadastrado!");
         }
     }
-    
-//    public void showCalculoTotal() {
-//        if (parcelas != 0.0f) {
-//            JOptionPane.showMessageDialog(null, "Valor das Parcelas para cada membro: " +parcelas);
-//            
-//        } else {
-//            JOptionPane.showMessageDialog(null, "Nenhuma parcela!");
-//        }
-//    }
     
 }
