@@ -170,8 +170,10 @@ public class Republic implements Serializable {
     }  
     
     public void showCategories() {
-        if (!category.isEmpty()) {
-            JOptionPane.showMessageDialog(null, category);
+        LinkedList<Category> temp = (LinkedList<Category>) category.clone();
+        temp.removeFirst();
+        if (!temp.isEmpty()) {
+            JOptionPane.showMessageDialog(null, temp);
             
         } else {
             JOptionPane.showMessageDialog(null, "Nenhuma categoria cadastrada!");
