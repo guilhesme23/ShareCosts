@@ -19,6 +19,7 @@ import java.awt.HeadlessException;
 import java.io.IOException;
 import java.util.LinkedList;
 import expenditure.Category;
+import expenditure.Cost;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
@@ -79,21 +80,21 @@ public class Home extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        namesList = new javax.swing.JList<>();
+        namesList = new javax.swing.JList<String>();
         formDeletePerson = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        namesDeleteList = new javax.swing.JList<>();
+        namesDeleteList = new javax.swing.JList<String>();
         formCategory = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         descEntry = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
-        comboSubs = new javax.swing.JComboBox<>();
+        comboSubs = new javax.swing.JComboBox<String>();
         formSubCategory = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         subEntry = new javax.swing.JTextField();
@@ -107,7 +108,14 @@ public class Home extends javax.swing.JFrame {
         valueEntry = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
-        categoryEntry = new javax.swing.JComboBox<>();
+        categoryEntry = new javax.swing.JComboBox<String>();
+        formDeleteCost = new javax.swing.JPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        costsDeleteList = new javax.swing.JList<String>();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         loadButton = new javax.swing.JMenuItem();
@@ -121,8 +129,9 @@ public class Home extends javax.swing.JFrame {
         newCostButton = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         editPerson = new javax.swing.JMenuItem();
-        deleteMenu = new javax.swing.JMenu();
+        deleteCost = new javax.swing.JMenu();
         deletePerson = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         showMenu = new javax.swing.JMenu();
         showDwellers = new javax.swing.JMenuItem();
         showCosts = new javax.swing.JMenuItem();
@@ -324,10 +333,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        namesList.setModel(new javax.swing.AbstractListModel<String>() {
+        namesList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "item1", "item2", "item3", "item4", "item5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         namesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(namesList);
@@ -429,10 +438,10 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        namesDeleteList.setModel(new javax.swing.AbstractListModel<String>() {
+        namesDeleteList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "item1", "item2", "item3", "item4", "item5" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         namesDeleteList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(namesDeleteList);
@@ -509,7 +518,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        comboSubs.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSubs.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboSubs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboSubsActionPerformed(evt);
@@ -656,7 +665,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        categoryEntry.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        categoryEntry.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         categoryEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryEntryActionPerformed(evt);
@@ -704,6 +713,88 @@ public class Home extends javax.swing.JFrame {
         );
 
         Root.add(formCost, "newCost");
+
+        formDeleteCost.setBackground(new java.awt.Color(226, 242, 243));
+        formDeleteCost.setName(""); // NOI18N
+
+        jLabel22.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(31, 108, 103));
+        jLabel22.setText("Deletar Pessoa");
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel22MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel22MouseEntered(evt);
+            }
+        });
+
+        jLabel23.setFont(new java.awt.Font("Impact", 0, 12)); // NOI18N
+        jLabel23.setText("Selecionar uma Despesa:");
+
+        jButton10.setBackground(new java.awt.Color(134, 205, 205));
+        jButton10.setText("Selecionar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        jButton11.setBackground(new java.awt.Color(134, 205, 205));
+        jButton11.setText("Cancelar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        costsDeleteList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "item1", "item2", "item3", "item4", "item5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        costsDeleteList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane3.setViewportView(costsDeleteList);
+
+        javax.swing.GroupLayout formDeleteCostLayout = new javax.swing.GroupLayout(formDeleteCost);
+        formDeleteCost.setLayout(formDeleteCostLayout);
+        formDeleteCostLayout.setHorizontalGroup(
+            formDeleteCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(formDeleteCostLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(formDeleteCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formDeleteCostLayout.createSequentialGroup()
+                        .addGroup(formDeleteCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(jButton10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                        .addComponent(jButton11))
+                    .addGroup(formDeleteCostLayout.createSequentialGroup()
+                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        formDeleteCostLayout.setVerticalGroup(
+            formDeleteCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formDeleteCostLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel23)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(formDeleteCostLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton10)
+                    .addComponent(jButton11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(jLabel22)
+                .addContainerGap())
+        );
+
+        Root.add(formDeleteCost, "deleteCost");
 
         jMenuBar1.setBackground(new java.awt.Color(134, 205, 205));
         jMenuBar1.setBorder(null);
@@ -827,11 +918,11 @@ public class Home extends javax.swing.JFrame {
 
         jMenuBar1.add(editMenu);
 
-        deleteMenu.setForeground(new java.awt.Color(31, 108, 103));
-        deleteMenu.setText("Deletar");
-        deleteMenu.addActionListener(new java.awt.event.ActionListener() {
+        deleteCost.setForeground(new java.awt.Color(31, 108, 103));
+        deleteCost.setText("Deletar");
+        deleteCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteMenuActionPerformed(evt);
+                deleteCostActionPerformed(evt);
             }
         });
 
@@ -842,9 +933,18 @@ public class Home extends javax.swing.JFrame {
                 deletePersonActionPerformed(evt);
             }
         });
-        deleteMenu.add(deletePerson);
+        deleteCost.add(deletePerson);
 
-        jMenuBar1.add(deleteMenu);
+        jMenuItem1.setBackground(new java.awt.Color(182, 224, 224));
+        jMenuItem1.setText("Deletar Despesa");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        deleteCost.add(jMenuItem1);
+
+        jMenuBar1.add(deleteCost);
 
         showMenu.setForeground(new java.awt.Color(31, 108, 103));
         showMenu.setText("Exibir");
@@ -1034,6 +1134,17 @@ public class Home extends javax.swing.JFrame {
         lista.setModel(model);
     }
     
+    private void updateListCost(JList lista) {
+        DefaultListModel model = new DefaultListModel();
+        model.clear();
+
+        for(Cost c: Principal.republic.getCosts()) {
+            model.addElement(c.getDesc());
+        }
+        
+        lista.setModel(model);
+    }
+    
     private void updateCombo(JComboBox combo, String[] names) {
         combo.removeAllItems();
         
@@ -1066,9 +1177,9 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"home");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void deleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuActionPerformed
+    private void deleteCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCostActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteMenuActionPerformed
+    }//GEN-LAST:event_deleteCostActionPerformed
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
@@ -1304,6 +1415,42 @@ public class Home extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Loaded file");
     }//GEN-LAST:event_loadButtonActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        updateListCost(costsDeleteList);
+        
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"deleteCost");
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseExited
+
+    private void jLabel22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel22MouseEntered
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        int index = costsDeleteList.getSelectedIndex();
+        if (index != -1) {
+            LinkedList<Cost> costs = Principal.republic.getCosts();
+            costs.remove(index);
+            JOptionPane.showMessageDialog(null, "Despesa removida com sucesso!");
+            updateListCost(costsDeleteList);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione uma despesa!");
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"home");
+    }//GEN-LAST:event_jButton11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1344,7 +1491,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> categoryEntry;
     private javax.swing.JComboBox<String> comboSubs;
     private javax.swing.JTextField costDesc;
-    private javax.swing.JMenu deleteMenu;
+    private javax.swing.JList<String> costsDeleteList;
+    private javax.swing.JMenu deleteCost;
     private javax.swing.JMenuItem deletePerson;
     private javax.swing.JTextField descEntry;
     private javax.swing.JMenu editMenu;
@@ -1354,6 +1502,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formCategory;
     private javax.swing.JPanel formCost;
+    private javax.swing.JPanel formDeleteCost;
     private javax.swing.JPanel formDeletePerson;
     private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
@@ -1361,6 +1510,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel homeCard;
     private javax.swing.JTextField incomeEntry;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1385,6 +1536,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1393,8 +1546,10 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JMenuItem loadButton;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JList<String> namesDeleteList;
