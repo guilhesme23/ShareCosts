@@ -29,7 +29,8 @@ public class Republic implements Serializable {
     private LinkedList<Person> residents = new LinkedList<>();
     private LinkedList<Cost> costs = new LinkedList<>();
     private LinkedList<Category> category = new LinkedList<>();
-    private LinkedList<Category> sub = new LinkedList<>();    
+    private LinkedList<Category> sub = new LinkedList<>();
+    private float parcelas;
 
     public Republic() {
         Category padrao = new Category();
@@ -102,9 +103,8 @@ public class Republic implements Serializable {
     }
     
     public void addCost(String desc, Category category, String value) throws DescricaoNaoInformadaException, CategoriaNaoInformadaException, ValorNaoInformadoException{
-    Cost cost = new Cost(desc,category,value);
-    this.costs.add(cost);
-        
+        Cost cost = new Cost(desc,category,value);
+        this.costs.add(cost);
     }
     
     public void addCategory(String desc, int subIndex) throws IOException {
@@ -197,5 +197,53 @@ public class Republic implements Serializable {
         
         return result;
     }
+    
+    public float calcularTotal (){
+        float totalDespesas = 0.0f;
+        for (Cost cost : this.costs){
+            totalDespesas += cost.getValue();
+        }
+        parcelas = totalDespesas/residents.size();
+        
+        return parcelas;
+    }
+    
+    public void calculoTotalProporcional (){
+        float totalDespesas = 0.0f;
+        float totalRendimento = 0.0f;
+        for (Cost cost : this.costs){
+            totalDespesas += cost.getValue();
+        }
+        for (Person pessoa : this.residents){
+            totalRendimento += pessoa.getIncome();
+        }
+        
+        float valorProp = 0.0f;
+        float valorParcela = 0.0f;
+        String guardaProp = "\n";
+        
+        for (Person person : this.residents){
+            valorProp = person.getIncome()/totalRendimento;
+            valorParcela = totalDespesas * valorProp;
+            guardaProp += String.format(person.getName()+" -> R$ %.2f (%.2f%%)\n",valorParcela,valorProp*100);
+        }
+        
+        if (guardaProp == "\n"){
+            JOptionPane.showMessageDialog(null, "Nada Cadastrado!");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Gasto Proporcional: " + guardaProp);
+    
+        }
+    }
+    
+//    public void showCalculoTotal() {
+//        if (parcelas != 0.0f) {
+//            JOptionPane.showMessageDialog(null, "Valor das Parcelas para cada membro: " +parcelas);
+//            
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Nenhuma parcela!");
+//        }
+//    }
     
 }
