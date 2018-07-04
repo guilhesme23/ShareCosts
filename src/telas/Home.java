@@ -110,24 +110,24 @@ public class Home extends javax.swing.JFrame {
         categoryEntry = new javax.swing.JComboBox<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
-        loadButton = new javax.swing.JRadioButtonMenuItem();
-        saveButton = new javax.swing.JRadioButtonMenuItem();
-        exportTxt = new javax.swing.JRadioButtonMenuItem();
+        loadButton = new javax.swing.JMenuItem();
+        saveButton = new javax.swing.JMenuItem();
+        exportTxt = new javax.swing.JMenuItem();
         newMenu = new javax.swing.JMenu();
-        homeButton = new javax.swing.JRadioButtonMenuItem();
-        newPersonButton = new javax.swing.JRadioButtonMenuItem();
-        newCategoryButton = new javax.swing.JRadioButtonMenuItem();
-        newSubCategoryButton = new javax.swing.JRadioButtonMenuItem();
-        newCostButton = new javax.swing.JRadioButtonMenuItem();
+        newHomeButton = new javax.swing.JMenuItem();
+        newPersonButton = new javax.swing.JMenuItem();
+        newCategoryButton = new javax.swing.JMenuItem();
+        newSubCategoryButton = new javax.swing.JMenuItem();
+        newCostButton = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
-        editPerson = new javax.swing.JRadioButtonMenuItem();
+        editPerson = new javax.swing.JMenuItem();
         deleteMenu = new javax.swing.JMenu();
-        deletePerson = new javax.swing.JRadioButtonMenuItem();
+        deletePerson = new javax.swing.JMenuItem();
         showMenu = new javax.swing.JMenu();
-        showDwellers = new javax.swing.JRadioButtonMenuItem();
-        showCosts = new javax.swing.JRadioButtonMenuItem();
-        showCategories = new javax.swing.JRadioButtonMenuItem();
-        showSubCategories = new javax.swing.JRadioButtonMenuItem();
+        showDwellers = new javax.swing.JMenuItem();
+        showCosts = new javax.swing.JMenuItem();
+        showCategories = new javax.swing.JMenuItem();
+        showSubCategories = new javax.swing.JMenuItem();
         showRulesIg = new javax.swing.JMenuItem();
         showRulesProp = new javax.swing.JMenuItem();
 
@@ -186,7 +186,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Impact", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(31, 108, 103));
-        jLabel2.setText("Adicionar pessoa");
+        jLabel2.setText("Adicionar Pessoa");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel2MouseClicked(evt);
@@ -244,7 +244,7 @@ public class Home extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(incomeEntry))
                     .addComponent(jButton1))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(212, Short.MAX_VALUE))
         );
         formPersonLayout.setVerticalGroup(
             formPersonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -756,19 +756,19 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        homeButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        homeButton.setBackground(new java.awt.Color(182, 224, 224));
-        homeButton.setText("Principal");
-        homeButton.addActionListener(new java.awt.event.ActionListener() {
+        newHomeButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        newHomeButton.setBackground(new java.awt.Color(182, 224, 224));
+        newHomeButton.setText("Principal");
+        newHomeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                homeButtonActionPerformed(evt);
+                newHomeButtonActionPerformed(evt);
             }
         });
-        newMenu.add(homeButton);
+        newMenu.add(newHomeButton);
 
         newPersonButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         newPersonButton.setBackground(new java.awt.Color(182, 224, 224));
-        newPersonButton.setText("Nova pessoa");
+        newPersonButton.setText("Nova Pessoa");
         newPersonButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newPersonButtonActionPerformed(evt);
@@ -778,8 +778,7 @@ public class Home extends javax.swing.JFrame {
 
         newCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         newCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
-        newCategoryButton.setSelected(true);
-        newCategoryButton.setText("Nova categoria");
+        newCategoryButton.setText("Nova Categoria");
         newCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newCategoryButtonActionPerformed(evt);
@@ -789,8 +788,7 @@ public class Home extends javax.swing.JFrame {
 
         newSubCategoryButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         newSubCategoryButton.setBackground(new java.awt.Color(182, 224, 224));
-        newSubCategoryButton.setSelected(true);
-        newSubCategoryButton.setText("Nova subcategoria");
+        newSubCategoryButton.setText("Nova Subcategoria");
         newSubCategoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newSubCategoryButtonActionPerformed(evt);
@@ -798,9 +796,9 @@ public class Home extends javax.swing.JFrame {
         });
         newMenu.add(newSubCategoryButton);
 
+        newCostButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         newCostButton.setBackground(new java.awt.Color(182, 224, 224));
-        newCostButton.setSelected(true);
-        newCostButton.setText("Nova despesa");
+        newCostButton.setText("Nova Despesa");
         newCostButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newCostButtonActionPerformed(evt);
@@ -819,7 +817,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         editPerson.setBackground(new java.awt.Color(182, 224, 224));
-        editPerson.setText("Editar pessoa");
+        editPerson.setText("Editar Pessoa");
         editPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editPersonActionPerformed(evt);
@@ -838,7 +836,7 @@ public class Home extends javax.swing.JFrame {
         });
 
         deletePerson.setBackground(new java.awt.Color(182, 224, 224));
-        deletePerson.setText("Deletar pessoa");
+        deletePerson.setText("Deletar Pessoa");
         deletePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deletePersonActionPerformed(evt);
@@ -955,24 +953,6 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"home");
     }//GEN-LAST:event_newMenuActionPerformed
 
-    private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"home");
-    }//GEN-LAST:event_homeButtonActionPerformed
-
-    private void newPersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButtonActionPerformed
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"newPerson");
-    }//GEN-LAST:event_newPersonButtonActionPerformed
-
-    private void showDwellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDwellersActionPerformed
-        Principal.republic.showResidents();
-    }//GEN-LAST:event_showDwellersActionPerformed
-
-    private void showCostsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCostsActionPerformed
-        Principal.republic.showCosts();
-    }//GEN-LAST:event_showCostsActionPerformed
-
     private void showMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_showMenuActionPerformed
@@ -995,35 +975,9 @@ public class Home extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
-        
-        if (showConfirmDialog == JOptionPane.YES_OPTION) {
-            FileHandler.saveObject(Principal.republic, "alunos.bin");
-            JOptionPane.showMessageDialog(null, "Saved succefully!");
-        } else {
-            JOptionPane.showMessageDialog(null, "Aborted!");
-        }
-        
-    }//GEN-LAST:event_saveButtonActionPerformed
-
-    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
-        Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
-        JOptionPane.showMessageDialog(null, "Loaded file");
-    }//GEN-LAST:event_loadButtonActionPerformed
-
     private void fileMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fileMenuActionPerformed
-
-    private void exportTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTxtActionPerformed
-        try {
-            FileHandler.exportObject(Principal.republic, "alunos.txt");
-            JOptionPane.showMessageDialog(null, "Exportado com sucesso!");
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Falha na exportação!");
-        }
-    }//GEN-LAST:event_exportTxtActionPerformed
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
@@ -1069,13 +1023,6 @@ public class Home extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void editPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonActionPerformed
-        updateList(namesList);
-        
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"editPerson");
-    }//GEN-LAST:event_editPersonActionPerformed
-
     private void updateList(JList lista) {
         DefaultListModel model = new DefaultListModel();
         model.clear();
@@ -1119,13 +1066,6 @@ public class Home extends javax.swing.JFrame {
         card.show(Root,"home");
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void deletePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePersonActionPerformed
-        updateList(namesDeleteList);
-        
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"deletePerson");
-    }//GEN-LAST:event_deletePersonActionPerformed
-
     private void deleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMenuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_deleteMenuActionPerformed
@@ -1159,14 +1099,6 @@ public class Home extends javax.swing.JFrame {
         CardLayout card = (CardLayout) Root.getLayout();
         card.show(Root,"home");
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void newCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCategoryButtonActionPerformed
-        String[] names = Principal.republic.getCategoriesSubs();
-        updateCombo(comboSubs,names);
-        
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"newCategory");
-    }//GEN-LAST:event_newCategoryButtonActionPerformed
 
     private void descEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descEntryActionPerformed
         // TODO add your handling code here:
@@ -1206,11 +1138,6 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailEntryActionPerformed
 
-    private void newSubCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSubCategoryButtonActionPerformed
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"newSubCategory");
-    }//GEN-LAST:event_newSubCategoryButtonActionPerformed
-
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         String desc = subEntry.getText();
         try {
@@ -1237,21 +1164,6 @@ public class Home extends javax.swing.JFrame {
     private void subEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subEntryActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_subEntryActionPerformed
-
-    private void showCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCategoriesActionPerformed
-        Principal.republic.showCategories();
-    }//GEN-LAST:event_showCategoriesActionPerformed
-
-    private void showSubCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSubCategoriesActionPerformed
-        Principal.republic.showSubCategories();        
-    }//GEN-LAST:event_showSubCategoriesActionPerformed
-
-    private void newCostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCostButtonActionPerformed
-        String[] names = Principal.republic.getCategories();
-        updateCombo(categoryEntry, names);
-        CardLayout card = (CardLayout) Root.getLayout();
-        card.show(Root,"newCost");
-    }//GEN-LAST:event_newCostButtonActionPerformed
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         // TODO add your handling code here:
@@ -1306,6 +1218,92 @@ public class Home extends javax.swing.JFrame {
         Principal.republic.calculoTotalProporcional();
     }//GEN-LAST:event_showRulesPropActionPerformed
 
+    private void showSubCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSubCategoriesActionPerformed
+        Principal.republic.showSubCategories();
+    }//GEN-LAST:event_showSubCategoriesActionPerformed
+
+    private void showCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCategoriesActionPerformed
+        Principal.republic.showCategories();
+    }//GEN-LAST:event_showCategoriesActionPerformed
+
+    private void showCostsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showCostsActionPerformed
+        Principal.republic.showCosts();
+    }//GEN-LAST:event_showCostsActionPerformed
+
+    private void showDwellersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDwellersActionPerformed
+        Principal.republic.showResidents();
+    }//GEN-LAST:event_showDwellersActionPerformed
+
+    private void deletePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePersonActionPerformed
+        updateList(namesDeleteList);
+        
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"deletePerson");
+    }//GEN-LAST:event_deletePersonActionPerformed
+
+    private void editPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPersonActionPerformed
+        updateList(namesList);
+        
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"editPerson");
+    }//GEN-LAST:event_editPersonActionPerformed
+
+    private void newCostButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCostButtonActionPerformed
+        String[] names = Principal.republic.getCategories();
+        updateCombo(categoryEntry, names);
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newCost");
+    }//GEN-LAST:event_newCostButtonActionPerformed
+
+    private void newSubCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newSubCategoryButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newSubCategory");
+    }//GEN-LAST:event_newSubCategoryButtonActionPerformed
+
+    private void newCategoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCategoryButtonActionPerformed
+        String[] names = Principal.republic.getCategoriesSubs();
+        updateCombo(comboSubs,names);
+        
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newCategory");
+    }//GEN-LAST:event_newCategoryButtonActionPerformed
+
+    private void newPersonButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newPersonButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"newPerson");
+    }//GEN-LAST:event_newPersonButtonActionPerformed
+
+    private void newHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newHomeButtonActionPerformed
+        CardLayout card = (CardLayout) Root.getLayout();
+        card.show(Root,"home");
+    }//GEN-LAST:event_newHomeButtonActionPerformed
+
+    private void exportTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTxtActionPerformed
+        try {
+            FileHandler.exportObject(Principal.republic, "alunos.txt");
+            JOptionPane.showMessageDialog(null, "Exportado com sucesso!");
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Falha na exportação!");
+        }
+    }//GEN-LAST:event_exportTxtActionPerformed
+
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        int showConfirmDialog = JOptionPane.showConfirmDialog(null, "It will override the actual saved file. Are you sure?");
+        
+        if (showConfirmDialog == JOptionPane.YES_OPTION) {
+            FileHandler.saveObject(Principal.republic, "alunos.bin");
+            JOptionPane.showMessageDialog(null, "Saved succefully!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Aborted!");
+        }
+        
+    }//GEN-LAST:event_saveButtonActionPerformed
+
+    private void loadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadButtonActionPerformed
+        Principal.republic = (Republic) FileHandler.loadObject("alunos.bin");
+        JOptionPane.showMessageDialog(null, "Loaded file");
+    }//GEN-LAST:event_loadButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1347,12 +1345,12 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> comboSubs;
     private javax.swing.JTextField costDesc;
     private javax.swing.JMenu deleteMenu;
-    private javax.swing.JRadioButtonMenuItem deletePerson;
+    private javax.swing.JMenuItem deletePerson;
     private javax.swing.JTextField descEntry;
     private javax.swing.JMenu editMenu;
-    private javax.swing.JRadioButtonMenuItem editPerson;
+    private javax.swing.JMenuItem editPerson;
     private javax.swing.JTextField emailEntry;
-    private javax.swing.JRadioButtonMenuItem exportTxt;
+    private javax.swing.JMenuItem exportTxt;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JPanel formCategory;
     private javax.swing.JPanel formCost;
@@ -1360,7 +1358,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel formEditPerson;
     private javax.swing.JPanel formPerson;
     private javax.swing.JPanel formSubCategory;
-    private javax.swing.JRadioButtonMenuItem homeButton;
     private javax.swing.JPanel homeCard;
     private javax.swing.JTextField incomeEntry;
     private javax.swing.JButton jButton1;
@@ -1398,26 +1395,27 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JRadioButtonMenuItem loadButton;
+    private javax.swing.JMenuItem loadButton;
     private javax.swing.JTextField nameEntry;
     private javax.swing.JList<String> namesDeleteList;
     private javax.swing.JList<String> namesList;
-    private javax.swing.JRadioButtonMenuItem newCategoryButton;
-    private javax.swing.JRadioButtonMenuItem newCostButton;
+    private javax.swing.JMenuItem newCategoryButton;
+    private javax.swing.JMenuItem newCostButton;
     private javax.swing.JTextField newEmail;
+    private javax.swing.JMenuItem newHomeButton;
     private javax.swing.JTextField newIncome;
     private javax.swing.JMenu newMenu;
     private javax.swing.JTextField newName;
-    private javax.swing.JRadioButtonMenuItem newPersonButton;
-    private javax.swing.JRadioButtonMenuItem newSubCategoryButton;
-    private javax.swing.JRadioButtonMenuItem saveButton;
-    private javax.swing.JRadioButtonMenuItem showCategories;
-    private javax.swing.JRadioButtonMenuItem showCosts;
-    private javax.swing.JRadioButtonMenuItem showDwellers;
+    private javax.swing.JMenuItem newPersonButton;
+    private javax.swing.JMenuItem newSubCategoryButton;
+    private javax.swing.JMenuItem saveButton;
+    private javax.swing.JMenuItem showCategories;
+    private javax.swing.JMenuItem showCosts;
+    private javax.swing.JMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
     private javax.swing.JMenuItem showRulesIg;
     private javax.swing.JMenuItem showRulesProp;
-    private javax.swing.JRadioButtonMenuItem showSubCategories;
+    private javax.swing.JMenuItem showSubCategories;
     private javax.swing.JTextField subEntry;
     private javax.swing.JTextField valueEntry;
     // End of variables declaration//GEN-END:variables
