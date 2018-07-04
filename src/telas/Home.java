@@ -128,6 +128,8 @@ public class Home extends javax.swing.JFrame {
         showCosts = new javax.swing.JRadioButtonMenuItem();
         showCategories = new javax.swing.JRadioButtonMenuItem();
         showSubCategories = new javax.swing.JRadioButtonMenuItem();
+        showRulesIg = new javax.swing.JMenuItem();
+        showRulesProp = new javax.swing.JMenuItem();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -890,6 +892,22 @@ public class Home extends javax.swing.JFrame {
         });
         showMenu.add(showSubCategories);
 
+        showRulesIg.setText("Regras Igualitárias");
+        showRulesIg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRulesIgActionPerformed(evt);
+            }
+        });
+        showMenu.add(showRulesIg);
+
+        showRulesProp.setText("Regras Proporcionais");
+        showRulesProp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRulesPropActionPerformed(evt);
+            }
+        });
+        showMenu.add(showRulesProp);
+
         jMenuBar1.add(showMenu);
 
         setJMenuBar(jMenuBar1);
@@ -1275,6 +1293,17 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_comboSubsActionPerformed
 
+    private void showRulesIgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesIgActionPerformed
+        // TODO add your handling code here:
+//        Principal.republic.showCalculoTotal();
+        JOptionPane.showMessageDialog(null, "Valor a pagar para cada Membro: " + Principal.republic.calcularTotal());
+    }//GEN-LAST:event_showRulesIgActionPerformed
+
+    private void showRulesPropActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRulesPropActionPerformed
+        // TODO add your handling code here:
+        Principal.republic.calculoTotalProporcional();
+    }//GEN-LAST:event_showRulesPropActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1384,6 +1413,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JRadioButtonMenuItem showCosts;
     private javax.swing.JRadioButtonMenuItem showDwellers;
     private javax.swing.JMenu showMenu;
+    private javax.swing.JMenuItem showRulesIg;
+    private javax.swing.JMenuItem showRulesProp;
     private javax.swing.JRadioButtonMenuItem showSubCategories;
     private javax.swing.JTextField subEntry;
     private javax.swing.JTextField valueEntry;
