@@ -1,6 +1,7 @@
-# Projeto de Orientação a Objetos
+# Projeto de Orientação a Objetos da Universidade de Brasília, Campus do Gama
 ### Distribuição de Despesas em uma República
 Repositório referente ao trabalho final de OO. Enunciado: https://goo.gl/GGg4bx
+
 
 
 ### Equipe
